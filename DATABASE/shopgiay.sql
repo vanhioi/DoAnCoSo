@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2024 at 04:43 PM
+-- Generation Time: Feb 04, 2024 at 05:46 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -227,6 +227,20 @@ ALTER TABLE `user`
 ALTER TABLE `giohang`
   ADD CONSTRAINT `giohang_ibfk_1` FOREIGN KEY (`idKH`) REFERENCES `user` (`idKH`),
   ADD CONSTRAINT `giohang_ibfk_2` FOREIGN KEY (`idSP`) REFERENCES `sanpham` (`idSP`);
+
+--
+-- Constraints for table `role`
+--
+ALTER TABLE `role`
+  ADD CONSTRAINT `role_ibfk_1` FOREIGN KEY (`id`) REFERENCES `user` (`idKH`),
+  ADD CONSTRAINT `role_ibfk_2` FOREIGN KEY (`id`) REFERENCES `admin` (`id`);
+
+--
+-- Constraints for table `sanpham`
+--
+ALTER TABLE `sanpham`
+  ADD CONSTRAINT `sanpham_ibfk_1` FOREIGN KEY (`idSP`) REFERENCES `spnew` (`id`),
+  ADD CONSTRAINT `sanpham_ibfk_2` FOREIGN KEY (`idSP`) REFERENCES `spsale` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
