@@ -14,7 +14,7 @@
                     
                     Login
                     <a href="trangchu.html">
-                        <img style="width: 50px; margin-right: 20px;" src="/IMAGES/logo.png" alt="#">
+                        <img style="width: 50px; margin-right: 20px;" src="../IMAGES/logo.png" alt="#">
                     </a>
                 </h1>
                 <div class="input-box">

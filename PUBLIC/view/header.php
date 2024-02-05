@@ -1,8 +1,8 @@
-<!--
+
 <div class="header">
     <div class="header-child">
     <a href="index.php">
-        <img style="width: 140px; margin-right: 20px;" src="/IMAGES/logo.png" alt="index.php">
+        <img style="width: 140px; margin-right: 20px;" src="../IMAGES/logo.png" alt="index.php">
     </a>
         <form action="index.php?pid=search" method="post">
             <input style="height: 32px;width: 250px;border-radius: 5px;outline: none;border: none;" class="submit" type="text" name="name_search" placeholder="Nhập vào để tìm ?"  >  
@@ -18,7 +18,7 @@
         <div>
             <a>
                 <div class="dropdown">
-                    <img style="margin-right: 20px;" src="/IMAGES/Account.png" alt="">
+                    <img style="margin-right: 20px;" src="../IMAGES/Account.png" alt="">
                     <div class="dropdown-content">
                         <a href="login.php">Đăng nhập</a>
                         <a href="dangki.php">Đăng ký</a>
@@ -29,7 +29,7 @@
         <div style="width: 20%;">
             <a style="text-decoration: none;">
                 <button>
-                    <img style="margin-right: 30px; " src="/IMAGES/Cart.png" alt="">
+                    <img style="margin-right: 30px; " src="../IMAGES/Cart.png" alt="">
                     Giỏ hàng
                 </button>
             </a>
@@ -134,4 +134,3 @@
         display: block;
     }
 </style>
--->
