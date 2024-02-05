@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="https://img.icons8.com/emoji/48/books-emoji.png"/>
+        <link rel="icon" href="https://i.pinimg.com/564x/39/dc/1b/39dc1b252746629529475184b6883fc0.jpg"/>
         <title>Nike - 2hand</title>
     </head>
 
