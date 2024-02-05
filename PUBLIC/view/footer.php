@@ -1,14 +1,13 @@
 
-<!---
 <div style="border-top: 1px solid gray; text-decoration: none;">    
     <center style="margin-top: 50px; ">
         <h2>CÔNG TY TNHH THÔNG TIN VÀ PHÁT TRIỂN</h2>
 
-        <img style="margin-right: 30px;" src="/IMAGES/Account.png" alt="" <p>Hotline:1900100100</p>
-        <img style="margin-right: 30px;" src="/IMAGES/Google.png" alt="" <p>Gmail:hoilamchi@gmail.com</p>
-        <img style="margin-right: 30px;" src="/IMAGES/Instagram.png" alt="" <p>IG:tomolamha__</p>
-        <img style="margin-right: 30px;" src="/IMAGES/Facebook.png" alt="" <p>Fanpage:Chúng tôi bán giày nè</p>
-        <img style="margin-right: 30px;" src="/IMAGES/Favorite.png" alt="" <p>Địa chỉ: 113 đường Cộng Hòa, phường 12, quận Tân Bình,tp Hồ Chí Minh</p>
+        <img style="margin-right: 30px;" src="../IMAGES/Account.png" alt="" <p>Hotline:1900100100</p>
+        <img style="margin-right: 30px;" src="../IMAGES/Google.png" alt="" <p>Gmail:hoilamchi@gmail.com</p>
+        <img style="margin-right: 30px;" src="../IMAGES/Instagram.png" alt="" <p>IG:tomolamha__</p>
+        <img style="margin-right: 30px;" src="../IMAGES/Facebook.png" alt="" <p>Fanpage:Chúng tôi bán giày nè</p>
+        <img style="margin-right: 30px;" src="../IMAGES/Favorite.png" alt="" <p>Địa chỉ: 113 đường Cộng Hòa, phường 12, quận Tân Bình,tp Hồ Chí Minh</p>
     </center>
 
 </div>
@@ -23,13 +22,13 @@
         </div>
         <div class="rightside">
             <a href="#">
-                <img src="/IMAGES/Instagram.png" alt="">
+                <img src="../IMAGES/Instagram.png" alt="">
             </a>
             <a href="#">
-                <img src="/IMAGES/Google.png" alt="">
+                <img src="../IMAGES/Google.png" alt="">
             </a>
             <a href="#">
-                <img src="/IMAGES/Facebook.png" alt="">
+                <img src="../IMAGES/Facebook.png" alt="">
             </a>
         </div>
     </div>
@@ -62,4 +61,3 @@
         text-decoration: none;
     }
 </style>
--->
