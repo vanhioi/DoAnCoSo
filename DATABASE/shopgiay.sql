@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2024 at 05:49 PM
+-- Generation Time: Feb 11, 2024 at 03:40 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,32 +24,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mausp`
+-- Table structure for table `size`
 --
 
-CREATE TABLE `mausp` (
-  `idmau` int(11) NOT NULL,
-  `tenmau` varchar(255) NOT NULL,
+CREATE TABLE `size` (
+  `idSize` int(11) NOT NULL,
   `idSP` int(11) NOT NULL,
-  `soluongtriongkho` varchar(255) NOT NULL
+  `sizevalue` varchar(20) NOT NULL,
+  `soluongtonkho` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `mausp`
+-- Dumping data for table `size`
 --
 
-INSERT INTO `mausp` (`idmau`, `tenmau`, `idSP`, `soluongtriongkho`) VALUES
-(1, 'trắng', 3, '2');
+INSERT INTO `size` (`idSize`, `idSP`, `sizevalue`, `soluongtonkho`) VALUES
+(1, 13, 'baby', 10),
+(2, 3, '36.5 ', 2),
+(3, 3, '37', 4),
+(4, 3, '40', 30),
+(5, 3, '41', 10),
+(6, 3, '42', 2);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `mausp`
+-- Indexes for table `size`
 --
-ALTER TABLE `mausp`
-  ADD PRIMARY KEY (`idmau`),
+ALTER TABLE `size`
+  ADD PRIMARY KEY (`idSize`),
   ADD KEY `idSP` (`idSP`);
 
 --
@@ -57,20 +62,20 @@ ALTER TABLE `mausp`
 --
 
 --
--- AUTO_INCREMENT for table `mausp`
+-- AUTO_INCREMENT for table `size`
 --
-ALTER TABLE `mausp`
-  MODIFY `idmau` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `size`
+  MODIFY `idSize` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `mausp`
+-- Constraints for table `size`
 --
-ALTER TABLE `mausp`
-  ADD CONSTRAINT `mausp_ibfk_1` FOREIGN KEY (`idSP`) REFERENCES `sanpham` (`idSP`);
+ALTER TABLE `size`
+  ADD CONSTRAINT `size_ibfk_1` FOREIGN KEY (`idSP`) REFERENCES `sanpham` (`idSP`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
