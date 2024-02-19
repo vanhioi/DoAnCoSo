@@ -60,7 +60,17 @@ $resultSql = $conn->query($sql);
             }
             ?>
         </div>
-        
+        <div class="phantrang">
+            <a href="index.php?pid=1&page=1"> < </a>
+
+            <?php
+            for ($i = $startPage; $i <= $endPage; $i++) {
+                echo "<a href='index.php?pid=1&page=$i'> $i  </a>";
+            }
+            ?>
+
+            <a href="index.php?pid=1&page=<?php echo $totalPage ?>"> > </a>
+        </div>
     </div>
 </div>
 
