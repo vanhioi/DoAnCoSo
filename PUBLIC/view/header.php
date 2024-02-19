@@ -1,20 +1,34 @@
+<?php
+$conn = new mysqli("localhost", "root", "", "shopgiay");
 
+$sql = "SELECT * FROM danhmuc"; 
+
+$resultSql = $conn->query($sql);
+
+?>
 <div class="header">
     <div class="header-child">
     <a href="index.php">
         <img style="width: 140px; margin-right: 20px;" src="../IMAGES/logo.png" alt="index.php">
     </a>
     
-        <form action="index.php?pid=search" method="post">
+        <form action="#" method="post">
             <input style="height: 32px;width: 250px;border-radius: 5px;outline: none;border: none;" class="submit" type="text" name="name_search" placeholder="Nhập vào để tìm ?"  >  
         </form>
         <div class="header-link" style="width: 55%; margin-left: 50px">
-            <a href="index.php?pid=1">HOME</a>
-            <a href="#New">NEW</a>
-            <a href="#Women">WOMEN</a>
-            <a href="#Men">MEN</a>
-            <a href="#KIDS">KIDS</a>
-            <a href="#SALE">SALE</a></li>
+            <a href="index.php">HOME</a>
+            <?php
+                if ($resultSql->num_rows > 0) {
+                    while ($row = $resultSql->fetch_assoc()) {
+                ?>
+                    <a href="index.php?pid=<?php echo $row['iddm']; ?>"><?php echo $row['tendm']; ?></a>
+                    
+                    <?php
+                    }
+                } else {
+                    echo "No products found.";
+                    }
+                ?>
         </div>
         <div>
             <a>

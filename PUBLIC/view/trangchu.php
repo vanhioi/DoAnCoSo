@@ -21,7 +21,7 @@
     /* Code của trang chủ*/
     .slider-wrapper {
         position: relative;
-        max-width: 75rem;
+        max-width: 40rem;
         margin: 0 auto;
     }
     .slider {

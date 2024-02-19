@@ -1,6 +1,7 @@
 <?php
 $conn = new mysqli("localhost", "root", "", "shopgiay");
 
+
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $totalItem = mysqli_fetch_assoc($conn->query("SELECT COUNT(*) as total FROM sanpham"))['total'];
 $itemPerPage = 12;
@@ -61,15 +62,15 @@ $resultSql = $conn->query($sql);
             ?>
         </div>
         <div class="phantrang">
-            <a href="index.php?pid=1&page=1"> < </a>
+            <a href="index.php?page=1"> < </a>
 
             <?php
             for ($i = $startPage; $i <= $endPage; $i++) {
-                echo "<a href='index.php?pid=1&page=$i'> $i  </a>";
+                echo "<a href='index.php?page=$i'> $i  </a>";
             }
             ?>
 
-            <a href="index.php?pid=1&page=<?php echo $totalPage ?>"> > </a>
+            <a href="index.php?page=<?php echo $totalPage ?>"> > </a>
         </div>
     </div>
 </div>

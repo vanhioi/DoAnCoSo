@@ -15,13 +15,11 @@
         if (isset($_GET["pid"])) {
             $id = $_GET["pid"];
             switch ($id) {
-                case '1':
-                    include('view/shop.php');
-                    break;
                 
             }
         } else{
             include("view/trangchu.php");
+            include("view/shop.php");
         }
         include("view/footer.php");
         ?>
