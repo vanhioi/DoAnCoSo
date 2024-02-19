@@ -38,7 +38,7 @@ $resultSql = $conn->query($sql);
                             <input type="hidden" name="tenSP" value="<?php echo $row['tenSP']; ?>">
                             <input type="hidden" name="gia" value="<?php echo $row['gia']; ?>">
                             <div style="display: flex; justify-content: center;">
-                                <img src="../IMAGES/anhcsld/ <?php echo $row['img']; ?>" alt="anh giay">
+                                <img src="../IMAGES/anhcsld/<?php echo $row['img']; ?>" alt="anh giay">
                             </div>
                             <div>
                                 <a href="index.php?pid=product_detail&id=<?=$row['idSP']?>"> <h3 style="margin: 20px 0 20px 0"><?php echo $row['tenSP']; ?></h3> </a>
