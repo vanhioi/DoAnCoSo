@@ -1,4 +1,11 @@
-<?php ob_start();?>
+<?php ob_start();
+    $conn = new mysqli("localhost", "root", "", "shopgiay");
+
+    $sql = "SELECT * FROM loaisp"; 
+    
+    $resultSql = $conn->query($sql);
+    
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,10 +22,15 @@
         if (isset($_GET["pid"])) {
             $id = $_GET["pid"];
             switch ($id) {
-                
-            }
-        } else{
+                case '1':
+                    include("view/spnew.php");
+                    break;
+                case '2':
+                    include("view/spsale.php");
+                    break;
+        }} else {
             include("view/trangchu.php");
+            include("view/danhmuc.php");
             include("view/shop.php");
         }
         include("view/footer.php");

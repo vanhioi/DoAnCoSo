@@ -1,8 +1,8 @@
 <?php
+
 $conn = new mysqli("localhost", "root", "", "shopgiay");
 
 $sql = "SELECT * FROM danhmuc"; 
-
 $resultSql = $conn->query($sql);
 
 ?>
@@ -28,7 +28,7 @@ $resultSql = $conn->query($sql);
                 } else {
                     echo "No products found.";
                     }
-                ?>
+            ?>
         </div>
         <div>
             <a>

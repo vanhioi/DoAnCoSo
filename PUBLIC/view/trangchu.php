@@ -15,9 +15,29 @@
     </div>
 </section>
 
+<div class="all_product">
+    <a href="index.php">ALL PRODUCTS</a>
+</div>
 
 <style>
-    
+    .all_product {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5vh;
+        background-color: black;
+        border-radius: 5px;
+        margin: 45px;
+        width: 15%;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    .all_product a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 22px;
+    }
     /* Code của trang chủ*/
     .slider-wrapper {
         position: relative;

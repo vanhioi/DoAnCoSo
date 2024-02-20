@@ -14,16 +14,22 @@ $sql .= " LIMIT $offset, $itemPerPage";
 $resultSql = $conn->query($sql);
 
 $loaispID = isset($_GET["loaisp"]) ? $_GET["loaisp"] : NULL;
+$IDdanhmuc = isset($_GET["iddm"]) ? $_GET["iddm"] : NULL;
 
 $allspsql= "SELECT * FROM sanpham";
 $womensql = "SELECT * FROM sanpham WHERE idLoaisp = 11 ";
 $kidssql = "SELECT * FROM sanpham WHERE idLoaisp = 12 ";
 $mensql = "SELECT * FROM sanpham WHERE idLoaisp = 13 ";
 
+$salesql = "SELECT * FROM sanpham WHERE iddm = 1 ";
+$newsql = "SELECT * FROM sanpham WHERE iddm = 2 ";
+
 $resultallspSql = $conn->query($allspsql);
 $resultWomenSql = $conn->query($womensql);
 $resultKidSql = $conn->query($kidssql);
 $resultMenSql = $conn->query($mensql);
+$resultsaleSql = $conn->query($salesql);
+$resultnewSql = $conn->query($newsql);
 ?>
 
 <?php
