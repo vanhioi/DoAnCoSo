@@ -1,18 +1,6 @@
 <?php
 $conn = new mysqli("localhost", "root", "", "shopgiay");
 
-$page = isset($_GET['page']) ? $_GET['page'] : 1;
-$totalItem = mysqli_fetch_assoc($conn->query("SELECT COUNT(*) as total FROM sanpham"))['total'];
-$itemPerPage = 12;
-$totalPage = ceil($totalItem / $itemPerPage);
-$startPage = max(1, $page - 1);
-$endPage = min($totalPage, $page + 1);
-
-$offset = ($page - 1) * $itemPerPage;
-
-$sql .= " LIMIT $offset, $itemPerPage";
-$resultSql = $conn->query($sql);
-
 $loaispID = isset($_GET["loaisp"]) ? $_GET["loaisp"] : NULL;
 
 $allspsql= "SELECT * FROM sanpham";
@@ -70,17 +58,6 @@ $resultMenSql = $conn->query($mensql);
             }
             ?>
         </div>
-        <div class="phantrang">
-            <a href="index.php?page=1"> < </a>
-
-            <?php
-            for ($i = $startPage; $i <= $endPage; $i++) {
-                echo "<a href='index.php?page=$i'> $i  </a>";
-            }
-            ?>
-
-            <a href="index.php?page=<?php echo $totalPage ?>"> > </a>
-        </div>
     </div>
 </div>
 <?php
@@ -126,17 +103,6 @@ $resultMenSql = $conn->query($mensql);
                 echo "No products found.";
             }
             ?>
-        </div>
-        <div class="phantrang">
-            <a href="index.php?page=1"> < </a>
-
-            <?php
-            for ($i = $startPage; $i <= $endPage; $i++) {
-                echo "<a href='index.php?page=$i'> $i  </a>";
-            }
-            ?>
-
-            <a href="index.php?page=<?php echo $totalPage ?>"> > </a>
         </div>
     </div>
 </div>
@@ -184,17 +150,6 @@ $resultMenSql = $conn->query($mensql);
             }
             ?>
         </div>
-        <div class="phantrang">
-            <a href="index.php?page=1"> < </a>
-
-            <?php
-            for ($i = $startPage; $i <= $endPage; $i++) {
-                echo "<a href='index.php?page=$i'> $i  </a>";
-            }
-            ?>
-
-            <a href="index.php?page=<?php echo $totalPage ?>"> > </a>
-        </div>
     </div>
 </div>
 <?php
@@ -240,17 +195,7 @@ $resultMenSql = $conn->query($mensql);
             }
             ?>
         </div>
-        <div class="phantrang">
-            <a href="index.php?page=1"> < </a>
 
-            <?php
-            for ($i = $startPage; $i <= $endPage; $i++) {
-                echo "<a href='index.php?page=$i'> $i  </a>";
-            }
-            ?>
-
-            <a href="index.php?page=<?php echo $totalPage ?>"> > </a>
-        </div>
     </div>
 </div>
 <?php
@@ -303,19 +248,6 @@ $resultMenSql = $conn->query($mensql);
         padding: 10px 30px 10px 30px;
         color: white;
         font-size: 16px;
-    }
-
-    .phantrang {
-        margin-top: 20px;
-        text-align: center;
-    }
-
-    .phantrang a {
-        text-decoration: none;
-        margin: 0 5px;
-        padding: 5px 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
     }
 
     a {
