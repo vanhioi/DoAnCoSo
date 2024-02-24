@@ -38,7 +38,7 @@
         display: flex;
         justify-content: center;
         height: 6vh;
-
+        background-color: #eee;
     }
 
     .footer .footer-child {
