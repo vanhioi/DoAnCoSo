@@ -37,16 +37,13 @@ $resultSql = $conn->query($sql);
         <div>
             <a>
                 <div class="dropdown">
-                    <img style="margin-right: 20px;" src="../IMAGES/Account.png" alt="">
-                    <div class="dropdown-content">
-                        <a href="login.php">Đăng nhập</a>
-                        <a href="dangki.php">Đăng ký</a>
-                    </div>
+                    <a href="#"><img style="margin-right: 20px;" src="../IMAGES/Account.png" alt=""></a>
+                    
                 </div>
             </a>
         </div>
         <div style="width: 20%;">
-            <a style="text-decoration: none;">
+            <a href="#" style="text-decoration: none;">
                 <button>
                     <img style="margin-right: 30px; " src="../IMAGES/Cart.png" alt="">
                     Giỏ hàng
@@ -103,56 +100,10 @@ $resultSql = $conn->query($sql);
     display: inline-block;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1
-}
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-.dropdown1 {
-    position: relative;
-    display: inline-block;
-}
 
-.dropdown-content1 {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 250px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown-content1 a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content1 a:hover {
-    background-color: #f1f1f1
-}
-
-.dropdown1:hover .dropdown-content1 {
-    display: block;
-}
 </style>
