@@ -209,6 +209,7 @@ $resultMenSql = $conn->query($mensql);
         display: flex;
         justify-content: center;
         margin: 50px 0 50px 0px;
+        
     }
 
     .shop-hihi {

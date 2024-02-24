@@ -34,7 +34,7 @@
         border-radius: 5px;
         color: white;
         font-size: 18px;
-        background-color: rgb(92, 94, 90);
+        background-color: #333;
     }
 </style>
 

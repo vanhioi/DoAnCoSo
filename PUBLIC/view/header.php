@@ -16,7 +16,7 @@ $resultSql = $conn->query($sql);
                 style="height: 32px;width: 250px;border-radius: 5px;outline: none;border: 1px solid #ccc; padding: 0 10px; margin-right: 5px;"
                 class="submit" type="text" name="tukhoa" placeholder="Nhập vào để tìm ?">
             <button type="submit" name="timkiem"
-                style="height: 32px; border-radius: 5px; border: none; background-color: #007bff; color: #fff; padding: 0 10px; margin-left: -1px;">search</button>
+                style="height: 32px; border-radius: 5px; border: none; background-color: #333; color: #fff; padding: 0 10px; margin-left: -1px;">search</button>
         </form>
 
         <div class="header-link" style="width: 55%; margin-left: 50px">
@@ -63,10 +63,13 @@ $resultSql = $conn->query($sql);
 }
 
 .header {
+    background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 10vh;
+    position: sticky;
+    top: 0;
 }
 
 .header .header-child {
