@@ -1,3 +1,4 @@
+//Hiện tại code có thể chưa ổn nha. bên thịnh mới reset lại máy nên thinh code mù đợi tới mai thịnh về set up lại bên visual với xampp rồi thịnh chỉnh lại phần này nha. Cảm ơn mọi người vì đã chờ 
 <?php
     include("header.php");
 
