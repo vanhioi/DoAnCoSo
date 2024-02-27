@@ -19,8 +19,9 @@ $resultSql = $conn->query($sql);
                 style="height: 32px; border-radius: 5px; border: none; background-color: #333; color: #fff; padding: 0 10px; margin-left: -1px;">search</button>
         </form>
 
-        <div class="header-link" style="width: 55%; margin-left: 50px">
+       <div class="header-link" style="width: 55%; margin-left: 50px">
             <a href="index.php">HOME</a>
+            <a href="login.php">login</a>
             <?php
                 if ($resultSql->num_rows > 0) {
                     while ($row = $resultSql->fetch_assoc()) {
@@ -31,7 +32,7 @@ $resultSql = $conn->query($sql);
                     }
                 } else {
                     echo "No products found.";
-                    }
+                    } /*nay panh them login*/
             ?>
         </div>
         <div>
