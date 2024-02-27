@@ -35,6 +35,10 @@
         }
         include("view/footer.php");
         ?>
+<!-- Nút Đăng nhập -->
+    <form action="login.php" method="post">
+        <button type="submit">Đăng nhập</button>
+    </form>
     </body>
 </html>
 
