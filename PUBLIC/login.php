@@ -42,7 +42,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <div class="wrapper">
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <h1>Login</h1>
+        <h1>
+            Login
+            <a href="index.php">
+                <img style="width: 50px; margin-right: 20px;" src="../IMAGES/logo.png" alt="#">
+            </a>
+        </h1>
         <div class="input-box">
             <input type="text" name="username" placeholder="Username" required>
             <i class='bx bxs-user'></i>
