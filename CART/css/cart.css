@@ -1,0 +1,76 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: sans-serif;
+  }
+  
+  .container {
+    width: 800px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .gio-hang {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .gio-hang th, .gio-hang td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  .gio-hang th {
+    text-align: center;
+  }
+  
+  .so-luong {
+    width: 50px;
+    text-align: center;
+  }
+  
+  .btn-tang, .btn-giam {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+  }
+  
+  .btn-tang:hover, .btn-giam:hover {
+    background-color: #ccc;
+  }
+  
+  .tong-tien {
+    margin-top: 20px;
+    text-align: right;
+  }
+  
+  .tong-tien span {
+    font-weight: bold;
+    color: red;
+  }
+  
+  .thanh-toan {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .btn-thanh-toan {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+  }
+  
+  .btn-thanh-toan:hover {
+    background-color: #333;
+  }

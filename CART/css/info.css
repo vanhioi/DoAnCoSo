@@ -1,0 +1,81 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: sans-serif;
+  }
+  .form {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: 800px;
+  }
+  .form-group {
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .label {
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .btn-primary {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #333;
+  }
+  
+  .container {
+    width: 800px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .phuong-thuc {
+    margin-top: 20px;
+  }
+  
+  .item {
+    margin-bottom: 10px;
+  }
+  
+  .item input {
+    margin-right: 10px;
+  }
+  
+  .btn-thanhtoan {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-thanhtoan:hover {
+    background-color: #333;
+  }
+  
