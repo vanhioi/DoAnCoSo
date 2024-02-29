@@ -9,10 +9,31 @@ session_start();
         <title>ADMIN</title>
     </head>
     <body>
-        <?php 
+        <?php
         include("view/admin.php");
-        
-        ?>
+		if(isset($_GET['act'])){
+			switch ($_GET['act']) {
+				case 'danhmuc':
+					include "view/danhmuc.php";
+					break;
+				case 'danhmuc':
+					include "view/sanpham.php";
+					break;
+				case 'danhmuc':
+					include "view/users.php";
+					break;
+				case 'danhmuc':
+					include "view/quanlidonhang.php";
+					break;
+				default:
+					include "view/admin.php";
+					break;
+			}
+		}else {
+            include "view/admin.php";
+        }
+	?>
+
     </body>
 </html>
 

@@ -18,28 +18,30 @@
             <div class="dropdown">
 				<li><a>Product</a></li>
 				<div class="dropdown-content">
-				<li><a href="#">Danh mục</a></li>
-				<li><a href="#">Sản phẩm</a></li>
+				<li><a href="index.php?act=danhmuc">Danh mục</a></li>
+				<li><a href="index.php?act=sanpham">Sản phẩm</a></li>
 				</div>
 			  </div>
-            <li><a href="#">Users</a></li>
-			<li><a href="#">Quản lí đơn hàng</a></li>
+            <li><a href="index.php?act=users">Users</a></li>
+			<li><a href="index.php?act=quanlidonhang">Quản lí đơn hàng</a></li>
         </ul>
 	</div>
-        
+    
+	
+
 	<div class="content_center">
 
 	<div class="home">
 	
-	<div class="list_catalog">
-		<ul class="list_catalogs">
-			<a href=""><div class="list_catalog_items trangchu" style="background-color: rgb(50, 50, 50);">Home</div></a>
-			<a href="admin.php?pg=catalog"><div class="list_catalog_items danhmuc" style="background-color: rgb(50, 50, 50);">Danh Mục</div></a>
-			<a href="admin.php?pg=product"><div class="list_catalog_items sanpham" style="background-color: rgb(50, 50, 50);">Sản Phẩm </div></a>
-			<a href=""><div class="list_catalog_items users" style="background-color: rgb(50, 50, 50);">Users</div></a>
-			<a href=""><div class="list_catalog_items quanlidonhang" style="background-color: rgb(50, 50, 50);">Quản lí đơn hàng</div></a>
-		</ul>
-	</div>
+		<div class="list_catalog">
+			<ul class="list_catalogs">
+				<a href=""><div class="list_catalog_items trangchu" style="background-color: rgb(50, 50, 50);">Home</div></a>
+				<a href="index.php?act=danhmuc"><div class="list_catalog_items danhmuc" style="background-color: rgb(50, 50, 50);">Danh Mục</div></a>
+				<a href="index.php?act=sanpham"><div class="list_catalog_items sanpham" style="background-color: rgb(50, 50, 50);">Sản Phẩm </div></a>
+				<a href="index.php?act=users"><div class="list_catalog_items users" style="background-color: rgb(50, 50, 50);">Users</div></a>
+				<a href="index.php?act=quanlidonhang"><div class="list_catalog_items quanlidonhang" style="background-color: rgb(50, 50, 50);">Quản lí đơn hàng</div></a>
+			</ul>
+		</div>
 	</div>
 	</div>
 

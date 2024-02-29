@@ -21,7 +21,7 @@ $resultSql = $conn->query($sql);
 
        <div class="header-link" style="width: 55%; margin-left: 50px">
             <a href="index.php">HOME</a>
-            <a href="login.php">login</a>
+          
             <?php
                 if ($resultSql->num_rows > 0) {
                     while ($row = $resultSql->fetch_assoc()) {
@@ -34,12 +34,24 @@ $resultSql = $conn->query($sql);
                     echo "No products found.";
                     } /*nay panh them login*/
             ?>
-        </div>
+        </div>sigin.hp
+        
         <div>
             <a>
                 <div class="dropdown">
-                    <a href="#"><img style="margin-right: 20px;" src="../IMAGES/Account.png" alt=""></a>
-                    
+                    <a href="login.php"><img style="margin-right: 20px;" src="../IMAGES/Account.png" alt=""></a>
+                    <?php
+                if ($resultSql->num_rows > 0) {
+                    while ($row = $resultSql->fetch_assoc()) {
+                ?>
+            <a href="index.php?pid=<?php echo $row['iddm']; ?>"><?php echo $row['tendm']; ?></a>
+
+            <?php
+                    }
+                } else {
+                    echo "No products found.";
+                    } /*nay panh them login*/
+            ?> 
                 </div>
             </a>
         </div>
