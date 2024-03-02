@@ -27,7 +27,7 @@ $resultMenSql = $conn->query($mensql);
             while ($row = $resultWomenSql->fetch_assoc()) {
                 
         ?>
-                  <a href="index.php?pid=product_detail&id=<?=$row['idSP']?>">
+                  <a href="chitietsanpham.php?pid=product_detail&id=<?=$row['idSP']?>">
                   <div class="display-product">
                         <form action="#" method="post">
                             <input type="hidden" name="idSP" value="<?php echo $row['idSP']; ?>">
@@ -38,7 +38,7 @@ $resultMenSql = $conn->query($mensql);
                                 <img src="../IMAGES/anhcsld/<?php echo $row['img']; ?>" alt="anh giay">
                             </div>
                             <div>
-                                <a href="index.php?pid=product_detail&id=<?=$row['idSP']?>"> <h3 style="margin: 20px 0 20px 0"><?php echo $row['tenSP']; ?></h3> </a>
+                                <a href="chitietsanpham?pid=product_detail&id=<?=$row['idSP']?>"> <h3 style="margin: 20px 0 20px 0"><?php echo $row['tenSP']; ?></h3> </a>
                                 <p style="margin-bottom: 20px;"><?=number_format($row['gia'], 0, ',', '.')?>vnđ</p>
                                 <a id="<?php echo $row["idSP"]; ?>">
                                     <button type="submit" name="submit">
@@ -73,7 +73,7 @@ $resultMenSql = $conn->query($mensql);
             while ($row = $resultKidSql->fetch_assoc()) {
                 
         ?>
-                  <a href="index.php?pid=product_detail&id=<?=$row['idSP']?>">
+                  <a href="chitietsanpham.php?pid=product_detail&id=<?=$row['idSP']?>">
                   <div class="display-product">
                         <form action="#" method="post">
                             <input type="hidden" name="idSP" value="<?php echo $row['idSP']; ?>">
@@ -84,7 +84,7 @@ $resultMenSql = $conn->query($mensql);
                                 <img src="../IMAGES/anhcsld/<?php echo $row['img']; ?>" alt="anh giay">
                             </div>
                             <div>
-                                <a href="index.php?pid=product_detail&id=<?=$row['idSP']?>"> <h3 style="margin: 20px 0 20px 0"><?php echo $row['tenSP']; ?></h3> </a>
+                                <a href="chitietsanpham.php?pid=product_detail&id=<?=$row['idSP']?>"> <h3 style="margin: 20px 0 20px 0"><?php echo $row['tenSP']; ?></h3> </a>
                                 <p style="margin-bottom: 20px;"><?=number_format($row['gia'], 0, ',', '.')?>vnđ</p>
                                 <a id="<?php echo $row["idSP"]; ?>">
                                     <button type="submit" name="submit">
@@ -119,7 +119,7 @@ $resultMenSql = $conn->query($mensql);
             while ($row = $resultMenSql->fetch_assoc()) {
                 
         ?>
-                  <a href="index.php?pid=product_detail&id=<?=$row['idSP']?>">
+                  <a href="chitietsanpham.php?pid=product_detail&id=<?=$row['idSP']?>">
                   <div class="display-product">
                         <form action="#" method="post">
                             <input type="hidden" name="idSP" value="<?php echo $row['idSP']; ?>">
@@ -130,7 +130,7 @@ $resultMenSql = $conn->query($mensql);
                                 <img src="../IMAGES/anhcsld/<?php echo $row['img']; ?>" alt="anh giay">
                             </div>
                             <div>
-                                <a href="index.php?pid=product_detail&id=<?=$row['idSP']?>"> <h3 style="margin: 20px 0 20px 0"><?php echo $row['tenSP']; ?></h3> </a>
+                                <a href="chitietsanpham.php?pid=product_detail&id=<?=$row['idSP']?>"> <h3 style="margin: 20px 0 20px 0"><?php echo $row['tenSP']; ?></h3> </a>
                                 <p style="margin-bottom: 20px;"><?=number_format($row['gia'], 0, ',', '.')?>vnđ</p>
                                 <a id="<?php echo $row["idSP"]; ?>">
                                     <button type="submit" name="submit">
@@ -164,7 +164,7 @@ $resultMenSql = $conn->query($mensql);
             while ($row = $resultallspSql->fetch_assoc()) {
                 
         ?>
-                  <a href="index.php?pid=product_detail&id=<?=$row['idSP']?>">
+                  <a href="chitietsanpham.php?pid=product_detail&id=<?=$row['idSP']?>">
                   <div class="display-product">
                         <form action="#" method="post">
                             <input type="hidden" name="idSP" value="<?php echo $row['idSP']; ?>">
@@ -175,7 +175,7 @@ $resultMenSql = $conn->query($mensql);
                                 <img src="../IMAGES/anhcsld/<?php echo $row['img']; ?>" alt="anh giay">
                             </div>
                             <div>
-                                <a href="index.php?pid=product_detail&id=<?=$row['idSP']?>"> <h3 style="margin: 20px 0 20px 0"><?php echo $row['tenSP']; ?></h3> </a>
+                            <a href="chitietsanpham.php?pid=product_detail&id=<?=$row['idSP']?>"> <h3 style="margin: 20px 0 20px 0"><?php echo $row['tenSP']; ?></h3> </a>
                                 <p style="margin-bottom: 20px;"><?=number_format($row['gia'], 0, ',', '.')?>vnđ</p>
                                 <a id="<?php echo $row["idSP"]; ?>">
                                     <button type="submit" name="submit">

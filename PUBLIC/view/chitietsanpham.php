@@ -1,16 +1,18 @@
-//Hiện tại code có thể chưa ổn nha. bên thịnh mới reset lại máy nên thinh code mù đợi tới mai thịnh về set up lại bên visual với xampp rồi thịnh chỉnh lại phần này nha. Cảm ơn mọi người vì đã chờ 
-<?php
-    include("header.php");
 
-    include_once("connect.php");
+<?php
+    include("view/header.php");
+
+    $conn = new mysqli("localhost", "root", "", "shopgiay");
     $id ="";
     if (isset($_GET["idSP"])) 
     {
         $id = $_GET["idSP"];
     }
 
-    $sql_query = " Select * from Product where id_sanpham = $id ";
-    $result = $conn -> query($sql_query); 
+    // $sql_query = " Select * from sanpham where id = $idSP ";
+    // $result = $conn -> query('Select * from sanpham where id = $idSP'); 
+    // $result = $conn -> query("SELECT * FROM sanpham WHERE id = {$idSP}");
+    $result = $conn->query("SELECT * FROM sanpham WHERE idSP = 1"); // cái này chỉnh lại cho lấy theo ID là được nha.
 
 ?>
     <div class ="container">
@@ -53,12 +55,10 @@
                     <?php
                 }
             }
-        ?>
-    
-    
-    
-</div>
-<br></br>   
-<?php
-    include("footer.php");
+            include("view/footer.php");
 ?>
+    
+
+    </div>
+<br></br>   
+   
