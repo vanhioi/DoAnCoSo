@@ -66,7 +66,7 @@ $conn->close();
         <h2>Welcome, <?php echo $TenKH; ?></h2>
         <!-- Other profile information here -->
         <button><a href="index.php">Trang chủ</a></button>
-        <button><a href="logout.php">Đăng xuất</a></button>
+        <button><a href="dangxuat.php">Đăng xuất</a></button>
     </center>
 </body>
 </html>

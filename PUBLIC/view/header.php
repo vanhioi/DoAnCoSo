@@ -34,11 +34,14 @@ $resultSql = $conn->query($sql);
                     echo "No products found.";
                     } /*nay panh them login*/
             ?>
-        </div>sigin.hp
+        </div>
         
         <div>
             <a>
                 <div class="dropdown">
+                <?php if (isset($_SESSION['nguoidung'])) {
+                        echo $nguoidung;
+                    } else { ?>
                     <a href="login.php"><img style="margin-right: 20px;" src="../IMAGES/Account.png" alt=""></a>
                     <?php
                 if ($resultSql->num_rows > 0) {
@@ -53,6 +56,9 @@ $resultSql = $conn->query($sql);
                     } /*nay panh them login*/
             ?> 
                 </div>
+                <?php
+                    }
+                ?>
             </a>
         </div>
         <div style="width: 20%;">

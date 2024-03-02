@@ -1,5 +1,8 @@
 <?php
+ob_start();
 session_start(); // Start session
+
+include '../DATABASE/connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get username and password from form submission

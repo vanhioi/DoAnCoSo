@@ -1,4 +1,13 @@
-<?php ob_start();
+<?php ob_start();?>
+
+<?php
+    // session_start();
+    if(isset($_SESSION['nguoidung'])){
+    $nguoidung = $_SESSION['nguoidung'];
+   }
+?>
+
+<?php
     $conn = new mysqli("localhost", "root", "", "shopgiay");
 
     $sql = "SELECT * FROM loaisp"; 
