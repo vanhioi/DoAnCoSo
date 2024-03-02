@@ -1,4 +1,4 @@
-
+chuyên cái này ra chung với đường dẫn index nha
 <?php
     include("view/header.php");
 
