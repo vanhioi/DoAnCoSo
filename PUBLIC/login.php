@@ -1,10 +1,10 @@
 <?php
+session_start(); // Start session
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
- 
+    // Get username and password from form submission
     $username = $_POST["username"];
     $password = $_POST["password"];
-
 
     $conn = new mysqli("localhost", "root", "", "shopgiay");
 
@@ -17,18 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "SELECT * FROM `user` WHERE `diachiemailKH` = '$username' AND `password` = '$password'";
     $result = $conn->query($sql);
 
-   
-    if ($result->num_rows > 0) {
-        
-        header("Location: profile.php");
-        exit();
-    } else {
-        
-        echo "<p style='color: red;'>Tên đăng nhập hoặc mật khẩu không chính xác.</p>";
-    }
+    // Store username in session
+    $_SESSION['username'] = $username;
 
-    
-    $conn->close();
+    // Redirect to profile page
+    header("Location: profile.php");
+    exit();
 }
 ?>
 <!DOCTYPE html>
