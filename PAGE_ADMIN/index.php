@@ -6,35 +6,55 @@ session_start();
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet" href="css/index.css">
         <title>ADMIN</title>
     </head>
     <body>
-        <?php
-        include("view/admin.php");
-		if(isset($_GET['act'])){
-			switch ($_GET['act']) {
-				case 'danhmuc':
-					include "view/danhmuc.php";
-					break;
-				case 'danhmuc':
-					include "view/sanpham.php";
-					break;
-				case 'danhmuc':
-					include "view/users.php";
-					break;
-				case 'danhmuc':
-					include "view/quanlidonhang.php";
-					break;
-				default:
-					include "view/admin.php";
-					break;
-			}
-		}else {
-            include "view/admin.php";
+        <?php 
+        include("../DATABASE/connect.php");
+        include("header.php");
+        include("sidebar.php");
+        if(isset($_GET['quanly'])){
+            $tam = $_GET['quanly'];
+        } else {
+            $tam = '';
         }
-	?>
+        if($tam =='themsanpham'){
+            include("view/themsanpham.php");
+        }
 
+        else if($tam =='suasanpham'){
+            include("view/suasanpham.php");
+        }
+        
+        else if($tam =='xulythemsanpham'){
+            include("xuly/xulythemsanpham.php");
+        }
+
+        else if($tam =='timkiemsanpham'){
+            include("view/timkiemsanpham.php");
+        }
+
+        else if($tam =='danhsachsanpham'){
+            include("view/danhsachsanpham.php");
+        }
+
+        else if($tam =='themsizesp'){
+            include("view/themsize.php");
+        }
+		else if($tam =='danhmuc'){
+            include("view/danhmuc.php");
+        }
+        
+        else {
+            include("5khungvuong.php");
+        }
+		
+        include("footer.php");
+        
+        ?>
     </body>
 </html>
-
-<?php ob_end_flush(); ?>
