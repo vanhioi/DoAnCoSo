@@ -37,17 +37,18 @@
                 case '2':
                     include("view/spsale.php");
                     break;
+                case '3':
+                    include("profile.php");
+                    break;    
         }} else {
             include("view/trangchu.php");
             include("view/danhmuc.php");
             include("view/shop.php");
+            
         }
         include("view/footer.php");
         ?>
-<!-- Nút Đăng nhập -->
-    <form action="login.php" method="post">
-        <button type="submit">Đăng nhập</button>
-    </form>
+
     </body>
 </html>
 

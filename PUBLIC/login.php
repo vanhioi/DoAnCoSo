@@ -23,10 +23,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Store username in session
     $_SESSION['username'] = $username;
 
-    // Redirect to profile page
-    header("Location: profile.php");
-    exit();
+    if ($result->num_rows > 0) {
+        
+        header("Location: profile.php");
+        exit();
+    } else {
+        
+        echo "<p style='color: red;'>Tên đăng nhập hoặc mật khẩu không chính xác.</p>";
+    }
+
+    
+    $conn->close();
+
+    
 }
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="https://i.pinimg.com/564x/39/dc/1b/39dc1b252746629529475184b6883fc0.jpg"/>
 </head>
 <body>
 <div class="wrapper">

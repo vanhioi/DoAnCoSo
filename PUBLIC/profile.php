@@ -36,12 +36,7 @@ if ($result === false || $result->num_rows == 0) {
 $conn->close();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+
     <style>
         input[type="text"] {
             margin-bottom: 25px;
@@ -59,13 +54,14 @@ $conn->close();
             align-items: center;
         }
     </style>
-</head>
+
 <body>
     <center>
         <img style="width:100px;" src="../IMAGES/Account.png" alt="">
         <h2>Welcome, <?php echo $TenKH; ?></h2>
         <!-- Other profile information here -->
         <button><a href="index.php">Trang chủ</a></button>
+        <button><a href="login.php">Đăng nhập</a></button>
         <button><a href="dangxuat.php">Đăng xuất</a></button>
     </center>
 </body>
@@ -91,3 +87,4 @@ $conn->close();
             align-items: center;
         }
            
+</style>

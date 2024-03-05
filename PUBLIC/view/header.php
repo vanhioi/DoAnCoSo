@@ -42,7 +42,7 @@ $resultSql = $conn->query($sql);
                 <?php if (isset($_SESSION['nguoidung'])) {
                         echo $nguoidung;
                     } else { ?>
-                    <a href="login.php"><img style="margin-right: 20px;" src="../IMAGES/Account.png" alt=""></a>
+                    <a href="index.php?pid=3"><img style="margin-right: 20px;" src="../IMAGES/Account.png" alt=""></a>
                     <?php
                 if ($resultSql->num_rows > 0) {
                     while ($row = $resultSql->fetch_assoc()) {
