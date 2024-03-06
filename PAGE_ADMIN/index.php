@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+// Kiểm tra xem người dùng đã đăng nhập hay chưa
+if (!isset($_SESSION['idKH'])) {
+    header('Location: login.php'); // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
