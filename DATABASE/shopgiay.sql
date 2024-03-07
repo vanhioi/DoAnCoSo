@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2024 at 04:07 AM
+-- Generation Time: Mar 07, 2024 at 01:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,18 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `shopgiay`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `60` varchar(60) NOT NULL,
-  `password` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -55,37 +43,23 @@ INSERT INTO `danhmuc` (`iddm`, `tendm`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `giohang`
---
-
-CREATE TABLE `giohang` (
-  `idgiohang` int(11) NOT NULL,
-  `idKH` int(11) NOT NULL,
-  `soluong` int(11) NOT NULL,
-  `tongsotien` decimal(10,0) NOT NULL,
-  `ngaythemvao` datetime NOT NULL,
-  `idSP` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `loaisp`
 --
 
 CREATE TABLE `loaisp` (
   `idLoaisp` int(11) NOT NULL,
-  `tenloaisp` varchar(255) NOT NULL
+  `tenloaisp` varchar(255) NOT NULL,
+  `iddm` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `loaisp`
 --
 
-INSERT INTO `loaisp` (`idLoaisp`, `tenloaisp`) VALUES
-(11, 'women'),
-(12, 'Kid'),
-(13, 'men');
+INSERT INTO `loaisp` (`idLoaisp`, `tenloaisp`, `iddm`) VALUES
+(11, 'women', 1),
+(12, 'Kid', 2),
+(13, 'men', 2);
 
 -- --------------------------------------------------------
 
@@ -106,6 +80,53 @@ CREATE TABLE `mausp` (
 
 INSERT INTO `mausp` (`idmau`, `tenmau`, `idSP`, `soluongtriongkho`) VALUES
 (1, 'trắng', 3, '2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order`
+--
+
+CREATE TABLE `order` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `fullname` varchar(50) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `phone_number` varchar(20) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `note` varchar(100) NOT NULL,
+  `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `status` int(11) NOT NULL,
+  `ship_method` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `id_phuongthuc` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_details`
+--
+
+CREATE TABLE `order_details` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_status`
+--
+
+CREATE TABLE `order_status` (
+  `id` int(11) NOT NULL,
+  `status_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -193,6 +214,18 @@ INSERT INTO `sanpham` (`idSP`, `tenSP`, `mota`, `gia`, `img`, `idLoaisp`, `iddm`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ship_method`
+--
+
+CREATE TABLE `ship_method` (
+  `id` int(11) NOT NULL,
+  `method_name` varchar(50) NOT NULL,
+  `price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `size`
 --
 
@@ -214,6 +247,17 @@ INSERT INTO `size` (`idSize`, `idSP`, `sizevalue`, `soluongtonkho`) VALUES
 (4, 3, '40', 30),
 (5, 3, '41', 10),
 (6, 3, '42', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `thanhtoan`
+--
+
+CREATE TABLE `thanhtoan` (
+  `id` int(11) NOT NULL,
+  `phuongthuc` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -244,30 +288,17 @@ INSERT INTO `user` (`idKH`, `TenKH`, `diachiKH`, `diachiemailKH`, `sodienthoaiKH
 --
 
 --
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `danhmuc`
 --
 ALTER TABLE `danhmuc`
   ADD PRIMARY KEY (`iddm`);
 
 --
--- Indexes for table `giohang`
---
-ALTER TABLE `giohang`
-  ADD PRIMARY KEY (`idgiohang`),
-  ADD KEY `idKH` (`idKH`),
-  ADD KEY `idSP` (`idSP`);
-
---
 -- Indexes for table `loaisp`
 --
 ALTER TABLE `loaisp`
-  ADD PRIMARY KEY (`idLoaisp`);
+  ADD PRIMARY KEY (`idLoaisp`),
+  ADD KEY `loaisp_ibfk_1` (`iddm`);
 
 --
 -- Indexes for table `mausp`
@@ -275,6 +306,30 @@ ALTER TABLE `loaisp`
 ALTER TABLE `mausp`
   ADD PRIMARY KEY (`idmau`),
   ADD KEY `idSP` (`idSP`);
+
+--
+-- Indexes for table `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `order_ibfk_2` (`status`),
+  ADD KEY `order_ibfk_3` (`ship_method`),
+  ADD KEY `order_ibfk_4` (`id_phuongthuc`);
+
+--
+-- Indexes for table `order_details`
+--
+ALTER TABLE `order_details`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `order_details_ibfk_1` (`order_id`),
+  ADD KEY `order_details_ibfk_2` (`product_id`),
+  ADD KEY `order_details_ibfk_3` (`user_id`);
+
+--
+-- Indexes for table `order_status`
+--
+ALTER TABLE `order_status`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `role`
@@ -291,11 +346,23 @@ ALTER TABLE `sanpham`
   ADD KEY `iddm` (`iddm`);
 
 --
+-- Indexes for table `ship_method`
+--
+ALTER TABLE `ship_method`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `size`
 --
 ALTER TABLE `size`
   ADD PRIMARY KEY (`idSize`),
   ADD KEY `idSP` (`idSP`);
+
+--
+-- Indexes for table `thanhtoan`
+--
+ALTER TABLE `thanhtoan`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
@@ -309,22 +376,10 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `danhmuc`
 --
 ALTER TABLE `danhmuc`
   MODIFY `iddm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `giohang`
---
-ALTER TABLE `giohang`
-  MODIFY `idgiohang` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `loaisp`
@@ -339,6 +394,24 @@ ALTER TABLE `mausp`
   MODIFY `idmau` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `order_details`
+--
+ALTER TABLE `order_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `order_status`
+--
+ALTER TABLE `order_status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
@@ -351,10 +424,22 @@ ALTER TABLE `sanpham`
   MODIFY `idSP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
+-- AUTO_INCREMENT for table `ship_method`
+--
+ALTER TABLE `ship_method`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `size`
 --
 ALTER TABLE `size`
   MODIFY `idSize` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `thanhtoan`
+--
+ALTER TABLE `thanhtoan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -367,30 +452,46 @@ ALTER TABLE `user`
 --
 
 --
--- Constraints for table `giohang`
+-- Constraints for table `loaisp`
 --
-ALTER TABLE `giohang`
-  ADD CONSTRAINT `giohang_ibfk_1` FOREIGN KEY (`idKH`) REFERENCES `user` (`idKH`),
-  ADD CONSTRAINT `giohang_ibfk_2` FOREIGN KEY (`idSP`) REFERENCES `sanpham` (`idSP`);
+ALTER TABLE `loaisp`
+  ADD CONSTRAINT `loaisp_ibfk_1` FOREIGN KEY (`iddm`) REFERENCES `danhmuc` (`iddm`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `mausp`
 --
 ALTER TABLE `mausp`
-  ADD CONSTRAINT `mausp_ibfk_1` FOREIGN KEY (`idSP`) REFERENCES `sanpham` (`idSP`);
+  ADD CONSTRAINT `mausp_ibfk_1` FOREIGN KEY (`idSP`) REFERENCES `sanpham` (`idSP`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `order`
+--
+ALTER TABLE `order`
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`status`) REFERENCES `user` (`idKH`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_ibfk_2` FOREIGN KEY (`status`) REFERENCES `order_status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_ibfk_3` FOREIGN KEY (`ship_method`) REFERENCES `ship_method` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_ibfk_4` FOREIGN KEY (`id_phuongthuc`) REFERENCES `thanhtoan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `order_details`
+--
+ALTER TABLE `order_details`
+  ADD CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `sanpham` (`idSP`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_details_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `user` (`idKH`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `sanpham`
 --
 ALTER TABLE `sanpham`
-  ADD CONSTRAINT `sanpham_ibfk_1` FOREIGN KEY (`idLoaisp`) REFERENCES `loaisp` (`idLoaisp`),
+  ADD CONSTRAINT `sanpham_ibfk_1` FOREIGN KEY (`idLoaisp`) REFERENCES `loaisp` (`idLoaisp`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `sanpham_ibfk_2` FOREIGN KEY (`iddm`) REFERENCES `danhmuc` (`iddm`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `size`
 --
 ALTER TABLE `size`
-  ADD CONSTRAINT `size_ibfk_1` FOREIGN KEY (`idSP`) REFERENCES `sanpham` (`idSP`);
+  ADD CONSTRAINT `size_ibfk_1` FOREIGN KEY (`idSP`) REFERENCES `sanpham` (`idSP`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user`
