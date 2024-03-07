@@ -40,6 +40,15 @@
                 case '3':
                     include("profile.php");
                     break;    
+                case '4':
+                    include("CART/cart/cart.php");
+                    break;
+                case '5':
+                    include("CART/cart/info.php");
+                    break;
+                case '6':
+                    include('CART/cart/confirm.php');
+                    break;
         }} else {
             include("view/trangchu.php");
             include("view/danhmuc.php");
