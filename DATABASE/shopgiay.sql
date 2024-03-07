@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 07, 2024 lúc 03:18 PM
+-- Thời gian đã tạo: Th3 07, 2024 lúc 03:26 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -259,6 +259,15 @@ CREATE TABLE `thanhtoan` (
   `phuongthuc` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `thanhtoan`
+--
+
+INSERT INTO `thanhtoan` (`id`, `phuongthuc`) VALUES
+(1, 'Thanh toán tiền mặt'),
+(2, 'Chuyển khoản ngân hàng\r\n'),
+(3, 'Ví MoMo');
+
 -- --------------------------------------------------------
 
 --
@@ -440,7 +449,7 @@ ALTER TABLE `size`
 -- AUTO_INCREMENT cho bảng `thanhtoan`
 --
 ALTER TABLE `thanhtoan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
