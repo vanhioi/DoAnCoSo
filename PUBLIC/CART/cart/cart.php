@@ -107,7 +107,7 @@ $totalQuantity = calculateTotalQuantity($_SESSION['cart']);
                             để được Free ship</p>
                     </div>
                     <div class="cart-content-right-button">
-                        <a href="index.php"><button>TIẾP TỤC MUA SẮM</button></a>
+                        <a href="index.php?pid=1"><button>TIẾP TỤC MUA SẮM</button></a>
                         <a href="index.php?pid=5"><button>THANH TOÁN</button></a>
 
                     </div>

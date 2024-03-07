@@ -3,29 +3,28 @@ $conn = new mysqli("localhost", "root", "", "shopgiay");
 
 $loaispID = isset($_GET["loaisp"]) ? $_GET["loaisp"] : NULL;
 
-$mensql = "SELECT * FROM sanpham WHERE idLoaisp = 13 ";
+$womensql = "SELECT * FROM sanpham WHERE idLoaisp = 11 ";
 
-$resultMenSql = $conn->query($mensql);
+$resultWomenSql = $conn->query($womensql);
+
 ?>
 
 <?php
     if(isset($_GET["idsp"])){
-    
-    if($_GET["idsp"]==13){
+    if($_GET["idsp"]==11){
+?>
 
-    
-    ?>
-    <div class="shop">
+<div class="shop">
     <div class="shop-hihi">
         <div class="shop-child">
         <?php
-            if ($resultMenSql->num_rows > 0) {
-            while ($row = $resultMenSql->fetch_assoc()) {
+            if ($resultWomenSql->num_rows > 0) {
+            while ($row = $resultWomenSql->fetch_assoc()) {
                 
         ?>
                   <a href="index.php?pid=product_detail&id=<?=$row['idSP']?>">
                   <div class="display-product">
-                        <form action="#" method="post">
+                        <form action="xulidulieu/addToCart.php" method="post">
                             <input type="hidden" name="idSP" value="<?php echo $row['idSP']; ?>">
                             <input type="hidden" name="img" value="<?php echo $row['img']; ?>">
                             <input type="hidden" name="tenSP" value="<?php echo $row['tenSP']; ?>">

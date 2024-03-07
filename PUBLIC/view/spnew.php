@@ -34,7 +34,7 @@ $resultnewSql = $conn->query($newsql);
         ?>
                   <a href="index.php?pid=product_detail&id=<?=$row['idSP']?>">
                   <div class="display-product">
-                        <form action="#" method="post">
+                        <form action="xulidulieu/addToCart.php" method="post">
                             <input type="hidden" name="idSP" value="<?php echo $row['idSP']; ?>">
                             <input type="hidden" name="img" value="<?php echo $row['img']; ?>">
                             <input type="hidden" name="tenSP" value="<?php echo $row['tenSP']; ?>">

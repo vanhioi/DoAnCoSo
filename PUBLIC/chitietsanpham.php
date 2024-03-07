@@ -1,63 +1,116 @@
-
 <?php
-    include("view/header.php");
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $con = mysqli_connect("localhost","root","","shopgiay");
+    $sql = 'SELECT * FROM `sanpham` WHERE idSP ='.$id; 
+    $result = mysqli_query($con,$sql);
+    $row = mysqli_fetch_assoc($result);
+}if($row==null){
+    header('http://localhost/DoAnCoSo_Copy/PUBLIC/index.php');
+}else{
 
-    $conn = new mysqli("localhost", "root", "", "shopgiay");
-    $id ="";
-    if (isset($_GET["pid"])) 
-    {
-        $id = $_GET["pid"];
-    }
-
-    $result = $conn->query("SELECT * FROM sanpham WHERE idSP = 1 "); // cái này chỉnh lại cho lấy theo ID là được nha.
-
-
-?>
-    <div class ="container">
-        <h2>Chi tiết sản phẩm</h2>
-        <?php
-            if ($result -> num_rows > 0)
-            {
-                while($row = $result -> fetch_assoc())
-                {
-                    ?>
-                        <div class ="row">
-                            <div class="col-md-5">
-                                <img src="<?php echo $row["img"] ?> "style="width: 100% height: 400px;margin: 5%; "/>
-                            </div>
-                            
-                            
-                            
-                            
-                            <div class="col-md-7">
-                                <h4 style ="color: grey;"><?php echo $row["tenSP"]; ?>                  </h4>
-                                <p style ="color: grey;"> Giá:  <?php echo $row["gia"]; ?>  vnđ      </p>
-                                <h5 style ="color: grey;"> Mô tả: <?php echo $row["mota"];?> </h5>
-                               
-                                <?php
-                                    $result = $conn->query("SELECT * FROM size where idSP= $id ");
-                                    if($row["soluongtonkho"]==0)
-                                    {
-                                            echo '<h4 style="color:red;"> Hết hàng </h4> ' ;
-                                    }
-                                    else
-                                    {
-                                            echo '<h4 style="color:green;"> Còn hàng</h4> ' ;
-                                            echo '<h4 style="color:black;"> Số lượng</h4> ';
-                                            echo '<input type="number"
-                                                 class="form-control" name="" id="" min="1" max="'.$row["soluongtonkho"].'" aria-describedby="helpId" placeholder="">';
-                                    }
-                                ?>
-                            </div>    
-                        </div>
-
-                    <?php
-                }
-            }
-            include("view/footer.php");
-?>
     
+}
+?>
+<body>
+    <section class="product">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="product-content-left">
+                        <div style="display: flex;width: 80%;margin: auto;" class="product-content-left-big-img">
+                            <img style="width: 25%;" src="../IMAGES/anhcsld/<?php echo $row['img']; ?>" alt="Product Image">
+                            <div class="product-content-right-product-name">
+                            <h1><?=$row['tenSP']?></h1>
+                            <h1 style="font-weight: 800;padding: 15px 0;" >Mô tả sản phẩm: 
+                             <h3 style="font-weight: 500;" ><?=$row['mota']?></h3>
+                            </h1>
+                            
+                        </div>
+                        </div>
+                        <div class="product-content-left-small-img">
+                            <!-- Add small images if needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="product-content-right">
+                      
+                        <div class="product-content-right-product-price">
+                            <p>Giá : <?=number_format($row['gia'], 0, '', ',')?><sup>đ</sup></p>
+                        </div>
+                        <div class="quantity">
+                            <p style="font-weight: bold;">Số lượng:</p>
+                            <input type="number" min="0" value="1">
+                            <p style="color: red;">Vui lòng chọn số lượng</p>
+                        </div>
+                        <div class="product-content-right-product-button">
+                    <!-- them san pham -->
+                        <form action="xulidulieu/addToCart.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo $row['idSP']; ?>">
+                            <input type="hidden" name="thumbnail" value="<?php echo $row['img']; ?>">
+                            <input type="hidden" name="title" value="<?php echo $row['tenSP']; ?>">
+                            <input type="hidden" name="price" value="<?php echo $row['gia']; ?>">
+                            <div>
+                                 <button type="submit" name="submit">
+                                    <img style="margin-right: 30px; width: 20px; height: 20px;" src="../IMAGES/Cart.png" alt="">
+                                    Giỏ hàng
+                                </button>
+                                </a>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+<style>
+        body {
+            background-color: while;
+        }
 
-    </div>
-<br></br>   
-   
+        .product {
+            margin-top: 100px;
+        }
+
+        .product-content-left-big-img img {
+            width: 200%;
+            height: auto;
+        }
+
+        .product-content-right {
+            padding: 20px 0 0 450px;
+            background-color: #fff;
+            margin-bottom: 50px;
+        }
+
+        .product-content-right-product-name h1 {
+            color: #343a40;
+        }
+
+        .product-content-right-product-price p {
+            font-size: 20px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .quantity {
+            margin-bottom: 10px;
+        }
+
+        .product-content-right-product-button button {
+            background-color: black;
+            border: none;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            padding: 10px 30px 10px 30px;
+            color: white;
+            font-size: 20px;
+        }
+
+        
+    </style>
