@@ -62,7 +62,7 @@ $resultSql = $conn->query($sql);
             </a>
         </div>
         <div style="width: 20%;">
-            <a href="#" style="text-decoration: none;">
+            <a href="index.php?pid=4" style="text-decoration: none;">
                 <button>
                     <img style="margin-right: 30px; " src="../IMAGES/Cart.png" alt="">
                     Giỏ hàng
