@@ -19,6 +19,10 @@ $totalQuantity = calculateTotalQuantity($_SESSION['cart']);
 ?>
 
 <div>
+<?php
+    // Kiểm tra đăng nhập trước khi hiển thị giỏ hàng
+    if (isset($_SESSION['username'])) {
+    ?>
     <section class="cart">
         <div class="container">
             <div class="cart-top-wrap">
@@ -114,15 +118,21 @@ $totalQuantity = calculateTotalQuantity($_SESSION['cart']);
                         <a href="index.php?pid=5"><button>THANH TOÁN</button></a>
 
                     </div>
-                    <div class="cart-content-right-dangnhap">
-                        <p>TÀI KHOẢN CỦA BẠN</p><br>
-                        <p> Hãy <a href="login.php">Đăng nhập</a> tài khoản của bạn đã tích điểm thành viên</p>
-                    </div>
-                    <!-- Additional content for the right side of the cart -->
+                    
                 </div>
             </div>
         </div>
     </section>
+    <?php
+    } else {
+        // Hiển thị thông báo yêu cầu đăng nhập nếu chưa đăng nhập
+        ?>
+        <div class="container">
+            <p style=" font-size: 50px; display: flex; justify-content: center;"><a href="login.php">Vui lòng đăng nhập để xem giỏ hàng của bạn. </a></p>
+        </div>
+        <?php
+    }
+    ?>
 </div>
 
 

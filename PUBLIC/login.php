@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         
-        header("Location: profile.php");
+        header("Location: index.php");
         exit();
     } else {
         

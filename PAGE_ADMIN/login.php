@@ -41,6 +41,8 @@ if (isset($_POST['submit'])) {
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="https://i.pinimg.com/564x/39/dc/1b/39dc1b252746629529475184b6883fc0.jpg"/>
+<title>Đăng nhập ADMIN</title>
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 form {border: 3px solid #f1f1f1;}
