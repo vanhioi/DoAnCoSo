@@ -11,7 +11,7 @@ $id =($_SESSION["id"]);
         $name = $_POST['name'];
         $dienthoai = $_POST['dienthoai'];
         $diachi = $_POST['diachi'];
-        $conn = mysqli_connect("localhost", "root", "", "web_bansach");
+        $conn = mysqli_connect("localhost", "root", "", "shopgiay");
         $sql = "
         INSERT INTO `orders`(
             `id`,
@@ -45,7 +45,7 @@ $id =($_SESSION["id"]);
 
     //thêm sản phẩm chi tiết vào order detail
  function order_id (){
-    $conn = mysqli_connect("localhost", "root", "", "web_bansach");
+    $conn = mysqli_connect("localhost", "root", "", "shopgiay");
     $sql = "    SELECT * FROM orders WHERE id = (SELECT MAX(id) FROM orders)    ";
     $result = mysqli_query($conn, $sql);
     $id = mysqli_fetch_array($result);
