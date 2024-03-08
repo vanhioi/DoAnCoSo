@@ -10,7 +10,7 @@ if (isset($_POST["submit"])) {
     //$shippping_method_id = 
     //$billing_adress_id = 
     $shipping_address_id = $_POST['id'];
-    $productArray = array($thumbnail, $title, $price, $id, $quantity);
+    $productArray = array($img, $tenSP, $gia, $id, $quantity);
 
     if (!isset($_SESSION["cart"])) {
         $_SESSION["cart"] = array();

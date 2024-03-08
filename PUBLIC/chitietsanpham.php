@@ -47,10 +47,10 @@ if(isset($_GET['id'])){
                         <div class="product-content-right-product-button">
                     <!-- them san pham -->
                         <form action="xulidulieu/addToCart.php" method="post">
-                            <input type="hidden" name="id" value="<?php echo $row['idSP']; ?>">
-                            <input type="hidden" name="thumbnail" value="<?php echo $row['img']; ?>">
-                            <input type="hidden" name="title" value="<?php echo $row['tenSP']; ?>">
-                            <input type="hidden" name="price" value="<?php echo $row['gia']; ?>">
+                            <input type="hidden" name="idSP" value="<?php echo $row['idSP']; ?>">
+                            <input type="hidden" name="img" value="<?php echo $row['img']; ?>">
+                            <input type="hidden" name="tenSP" value="<?php echo $row['tenSP']; ?>">
+                            <input type="hidden" name="gia" value="<?php echo $row['gia']; ?>">
                             <div>
                                  <button type="submit" name="submit">
                                     <img style="margin-right: 30px; width: 20px; height: 20px;" src="../IMAGES/Cart.png" alt="">

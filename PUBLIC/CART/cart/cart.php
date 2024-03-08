@@ -41,22 +41,25 @@ $totalQuantity = calculateTotalQuantity($_SESSION['cart']);
                 <div style="width: 50%;" class="cart-content-left">
                     <table>
                         <tr>
+                            <th>Ảnh</th>
                             <th>Tên sản phẩm</th>
                             <th>Thành tiền</th>
                             <th>SL</th>
                             <th>Xóa</th>
                         </tr>
+
                         <?php
                         $totalPrice = 0;
                         $i = 0;
                      if(isset($_SESSION["cart"])){
                         foreach ($_SESSION['cart'] as $product) {
-                            $totalPrice+= $product['price']* $product['soluong'];
+                            $totalPrice+= $product['gia']* $product['soluong'];
                             echo '<tr>';
                             // Thong tin san pham
-                           
-                            echo '<td><p>' . $product['title'] . '</p></td>';
-                            echo '<td><p>' . $product['price']*$product['soluong'] . '</p></td>';
+                            echo '<td><img src="../IMAGES/anhcsld/' . $product['img'] . '" alt="Hình ảnh sản phẩm"></td>';
+
+                            echo '<td><p>' . $product['tenSP'] . '</p></td>';
+                            echo '<td><p>' . $product['gia']*$product['soluong'] . '</p></td>';
                             echo '<td>
                                     <form method="post" action="update_quantity.php"> 
                                         <input type="hidden" name="index" value="">

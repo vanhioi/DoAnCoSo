@@ -1,3 +1,26 @@
+
+<?php
+session_start();
+$conn = new mysqli("localhost", "root", "", "shopgiay");
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Lấy dữ liệu 
+    $fullname = $_POST['fullname'];
+    $email = $_POST['email'];
+    $phone_number = $_POST['phone_number'];
+    $address = $_POST['address'];
+    $note = $_POST['note'];
+    $id_phuongthuc = $_POST['id_phuongthuc'];
+
+    // Thực hiện truy vấn SQL để chèn dữ liệu vào cơ sở dữ liệu
+    $sql = "INSERT INTO order (fullname, email, phone_number, address, note, id_phuongthuc)
+            VALUES ('$fullname', '$email', '$phone_number', '$address', '$note', '$id_phuongthuc')";
+
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +36,7 @@
             <h1>Thông tin người mua</h1>
             <div class="form-group">
               <label for="ten">Họ và tên:</label>
-              <input type="text" id="ten" name="ten" class="form-control" required>
+              <input type="text" id="ten" name="fullname" class="form-control" required>
             </div>
             <div class="form-group">
               <label for="email">Email:</label>
@@ -21,15 +44,15 @@
             </div>
             <div class="form-group">
               <label for="dienthoai">Số điện thoại:</label>
-              <input type="tel" id="dienthoai" name="dienthoai" class="form-control" required>
+              <input type="tel" id="dienthoai" name="phone_number" class="form-control" required>
             </div>
             <div class="form-group">
               <label for="diachi">Địa chỉ:</label>
-              <input type="text" id="diachi" name="diachi" class="form-control" required>
+              <input type="text" id="diachi" name="address" class="form-control" required>
             </div>
             <div class="form-group">
               <label for="ghichu">Ghi chú:</label>
-              <textarea id="ghichu" name="ghichu" class="form-control"></textarea>
+              <textarea id="ghichu" name="note" class="form-control"></textarea>
             </div>
           </form>
     </div>
@@ -39,15 +62,15 @@
         
         <div class="phuong-thuc">
           <div class="item">
-            <input type="radio" id="tienmat" name="phuong-thuc" value="tienmat" checked>
+            <input type="radio" id="tienmat" name="phuongthuc" value="tienmat" checked>
             <label for="tienmat">Thanh toán tiền mặt</label>
           </div>
           <div class="item">
-            <input type="radio" id="chuyenkhoan" name="phuong-thuc" value="chuyenkhoan">
+            <input type="radio" id="chuyenkhoan" name="phuongthuc" value="chuyenkhoan">
             <label for="chuyenkhoan">Chuyển khoản ngân hàng</label>
           </div>
           <div class="item">
-            <input type="radio" id="momo" name="phuong-thuc" value="momo">
+            <input type="radio" id="momo" name="phuongthuc" value="momo">
             <label for="momo">Ví MoMo</label>
           </div>
         </div>
@@ -56,8 +79,7 @@
 
         </a>
       </div>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </body>
 </html>
 
