@@ -10,60 +10,9 @@ $sql = "SELECT idKH,diachiKH,diachiemailKH,sodienthoaiKH,idrole,password"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel="stylesheet" href="css/index.css">
-        <title>ADMIN</title>
     </head>
-    <body>
-        <div id="header">
-    <h1>TRANG QUẢN TRỊ</h1>
+   
     
-</div>
-<style>
-    #header {
-    background-color:rgb(50, 50, 50);
-    color:white;
-    text-align:center;
-    padding:5px;
-}
-    
-</style><div id="topmenu">
-        <ul>
-            <li><a href="index.php">Trang chủ</a></li>
-            <li><a href="index.php">Danh mục</a></li>
-            <li><a href="user.php">Users</a></li>
-            <li><a href="#">Quản lí đơn hàng</a></li>
-            <li><a href="index.php?quanly=danhsachsanpham">Danh sách sản phẩm</a></li>
-            <li><a href="dangxuat.php">Đăng xuất</a> </li>
-        </ul>
-    </div>
-    <style>
-    #topmenu {
-    line-height:30px;
-    background-color:#b9b9b9;
-    height: 500px;
-    width:200px;
-    float:left;
-}
-#topmenu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: #b9b9b9;
-}
-#topmenu li a {
-    display: block;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
-}
-/* Change the link color on hover */
-#topmenu li a:hover {
-    background-color: #555;
-    color: rgb(255, 255, 255);
-}
-</style><link rel="stylesheet" href="css/table.css">
-
-
 
 <body>
     <div class="main p-3">
@@ -76,7 +25,6 @@ $sql = "SELECT idKH,diachiKH,diachiemailKH,sodienthoaiKH,idrole,password"
                         </form>
                     </div>
                 </div>
-            </div>
             <h6 style="text-align: center;padding: 10px;font-size: 30px; ">Danh sách tài khoản</h6>
 
             <div class="container">
@@ -93,7 +41,9 @@ $sql = "SELECT idKH,diachiKH,diachiemailKH,sodienthoaiKH,idrole,password"
                                         <th>Số điện thoại</th>
                                         <th>ID Role</th>
                                         <th>Password</th>
-                                        
+</div>
+</div>
+</div>
                                       
                                     </tr>
                                 </thead>
