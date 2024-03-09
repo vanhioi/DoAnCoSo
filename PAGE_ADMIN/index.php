@@ -25,42 +25,42 @@ if (!isset($_SESSION['idKH'])) {
         include("header.php");
         include("sidebar.php");
         if(isset($_GET['quanly'])){
-            $tam = $_GET['quanly'];
-        } else {
-            $tam = '';
-        }
-        if($tam =='themsanpham'){
-            include("view/themsanpham.php");
-        }
-
-        else if($tam =='suasanpham'){
-            include("view/suasanpham.php");
-        }
-        
-        else if($tam =='xulythemsanpham'){
-            include("xuly/xulythemsanpham.php");
-        }
-
-        else if($tam =='timkiemsanpham'){
-            include("view/timkiemsanpham.php");
-        }
-
-        else if($tam =='danhsachsanpham'){
-            include("view/danhsachsanpham.php");
-        }
-
-        else if($tam =='themsizesp'){
-            include("view/themsize.php");
-        }
-		else if($tam =='danhmuc'){
-            include("view/danhmuc.php");
+            $id = $_GET['quanly'];
+            switch ($id) {
+                case 'themsanpham':
+                    include("view/themsanpham.php");
+                    break;
+                case 'suasanpham':
+                    include("view/suasanpham.php");
+                    break;
+                case 'xulythamsanpham':
+                    include("xuly/xulythemsanpham.php");
+                    break;
+                case 'timkiemsanpham':
+                    include("view/timkiemsanpham.php");
+                    break;
+                case 'danhsachsanpham':
+                    include("view/danhsachsanpham.php");
+                    break;
+                case 'themsizesp':
+                    include("view/themsize.php");
+                    break;
+                case 'danhmuc':
+                    include("view/danhmuc.php");
+                    break;
+                case 'user':
+                    include("view/user.php");
+                    break;
+                case 'xoa':
+                    include("view/xoa.php");
+                    break;
+            }
         }
         
         else {
             include("5khungvuong.php");
         }
 		
-        include("footer.php");
         
         ?>
     </body>
