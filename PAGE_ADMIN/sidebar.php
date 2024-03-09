@@ -1,7 +1,7 @@
 <div id="topmenu">
         <ul>
             <li><a href="index.php">Trang chủ</a></li>
-            <li><a href="index.php">Danh mục</a></li>
+            <li><a href="index.php?quanly=danhmuc">Danh sách danh mục</a></li>
             <li><a href="index.php?quanly=danhsachsanpham">Danh sách sản phẩm</a></li>
             <li><a href="index.php?quanly=user">Users</a></li>
             <li><a href="#">Quản lí đơn hàng</a></li>

@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="css/table.css">
 
 <?php
-$sql = "SELECT sanpham.idSP, sanpham.tenSP, sanpham.img, sanpham.gia, sanpham.mota, sanpham.idLoaisp, sanpham.iddm, GROUP_CONCAT(size.sizevalue) AS all_sizes, GROUP_CONCAT(size.soluongtonkho) AS all_stock
+$sql = "SELECT sanpham.idSP, sanpham.tenSP, sanpham.img, sanpham.gia, sanpham.mota, sanpham.idLoaisp, sanpham.iddm
         FROM sanpham 
-        LEFT JOIN size ON sanpham.idSP = size.idSP  
+       
         GROUP BY sanpham.idSP
         ORDER BY sanpham.idSP DESC";
 $qr = mysqli_query($conn, $sql);
@@ -42,14 +42,13 @@ $qr = mysqli_query($conn, $sql);
                                         <th>Tên sản phẩm</th>
                                         <th>Hình ảnh</th>
                                         <th>Giá</th>
-                                        <th>Size</th>
-                                        <th>Số lượng tồn kho</th>
+
                                         <th>Mô tả</th>
                                         <th>Loại sản phẩm</th>
                                         <th>Danh mục</th>
                                         <th>Sửa</th>
                                         <th>Xóa</th>
-                                        <th>Thêm size,số lượng</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,11 +60,10 @@ $qr = mysqli_query($conn, $sql);
                                     <tr>
                                         <td><?php echo $i ?></td>
                                         <td><?php echo $row['tenSP'] ?></td>
-                                        <td><img src="../IMAGES/anhcsld/<?php echo $row['img'] ?>" class="img-fluid"
+<td><img src="../IMAGES/anhcsld/<?php echo $row['img'] ?>" class="img-fluid"
                                                 style="max-width: 100px;"></td>
                                         <td><?php echo $row['gia'] ?></td>
-                                        <td><?php echo $row['all_sizes'] ?></td>
-                                        <td><?php echo $row['all_stock'] ?></td>
+                                      
                                         <td><?php echo $row['mota'] ?></td>
                                         <td><?php echo $row['idLoaisp'] ?></td>
                                         <td><?php echo $row['iddm'] ?></td>
@@ -73,8 +71,7 @@ $qr = mysqli_query($conn, $sql);
                                                 class="btn btn-primary">Sửa</a></td>
                                         <td><a href="index.php?quanly=xulythemsanpham&id=<?php echo $row['idSP'] ?>"
                                                 class="btn btn-danger">Xóa</a></td>
-                                        <td><a href="index.php?quanly=themsizesp&id=<?php echo $row['idSP'] ?>"
-                                                class="btn btn-success">Thêm</a></td>
+                                        
                                     </tr>
                                     <?php
                         }

@@ -30,23 +30,32 @@ if (!isset($_SESSION['idKH'])) {
                 case 'themsanpham':
                     include("view/themsanpham.php");
                     break;
+                case 'themdanhmuc':
+                     include("view/themdanhmuc.php");
+                        break;
+                case 'suadanhmuc':
+                    include("view/suadanhmuc.php");
+                        break;
                 case 'suasanpham':
                     include("view/suasanpham.php");
                     break;
-                case 'xulythamsanpham':
+                case 'xulythemsanpham':
                     include("xuly/xulythemsanpham.php");
                     break;
                 case 'timkiemsanpham':
                     include("view/timkiemsanpham.php");
                     break;
+                case 'xulythemdanhmuc':
+                    include("xuly/xulythemdanhmuc.php");
+                    break;
                 case 'danhsachsanpham':
                     include("view/danhsachsanpham.php");
                     break;
+                case 'danhmuc':
+                    include("view/danhsachdanhmuc.php");
+                    break;
                 case 'themsizesp':
                     include("view/themsize.php");
-                    break;
-                case 'danhmuc':
-                    include("view/danhmuc.php");
                     break;
                 case 'user':
                     include("view/user.php");
