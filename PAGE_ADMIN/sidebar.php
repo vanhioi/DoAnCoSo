@@ -1,8 +1,9 @@
 <div id="topmenu">
         <ul>
             <li><a href="index.php">Trang chủ</a></li>
-            <li><a href="index.php?quanly=danhmuc">Danh sách danh mục</a></li>
-            <li><a href="index.php?quanly=danhsachsanpham">Danh sách sản phẩm</a></li>
+            <li><a href="index.php?quanly=danhmuc">Danh Mục</a></li>
+            <li><a href="index.php?quanly=danhmucsanpham">Danh Mục Sản Phẩm</a></li>
+            <li><a href="index.php?quanly=danhsachsanpham">Danh Sách Sản Phẩm</a></li>
             <li><a href="index.php?quanly=user">Users</a></li>
             <li><a href="#">Quản lí đơn hàng</a></li>
             <li><a href="dangxuat.php">Đăng xuất</a> </li>

@@ -31,28 +31,40 @@ if (!isset($_SESSION['idKH'])) {
                     include("view/themsanpham.php");
                     break;
                 case 'themdanhmuc':
-                     include("view/themdanhmuc.php");
+                    include("view/themdanhmuc.php");
                         break;
+                case 'themdanhmucsanpham':
+                    include("view/themdanhmucsanpham.php");
+                       break;
                 case 'suadanhmuc':
                     include("view/suadanhmuc.php");
                         break;
                 case 'suasanpham':
                     include("view/suasanpham.php");
                     break;
+                case 'suadanhmucsanpham':
+                    include("view/suadanhmucsanpham.php");
+                    break;
                 case 'xulythemsanpham':
                     include("xuly/xulythemsanpham.php");
                     break;
-                case 'timkiemsanpham':
-                    include("view/timkiemsanpham.php");
-                    break;
                 case 'xulythemdanhmuc':
                     include("xuly/xulythemdanhmuc.php");
+                    break;
+                case 'xulythemdanhmucsanpham':
+                    include("xuly/xulythemdanhmucsanpham.php");
+                    break;
+                case 'timkiemsanpham':
+                    include("view/timkiemsanpham.php");
                     break;
                 case 'danhsachsanpham':
                     include("view/danhsachsanpham.php");
                     break;
                 case 'danhmuc':
-                    include("view/danhsachdanhmuc.php");
+                    include("view/danhmuc.php");
+                    break;
+                case 'danhmucsanpham':
+                    include("view/danhmucsanpham.php");
                     break;
                 case 'themsizesp':
                     include("view/themsize.php");

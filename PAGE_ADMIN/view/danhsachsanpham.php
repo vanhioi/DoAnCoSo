@@ -60,7 +60,7 @@ $qr = mysqli_query($conn, $sql);
                                     <tr>
                                         <td><?php echo $i ?></td>
                                         <td><?php echo $row['tenSP'] ?></td>
-<td><img src="../IMAGES/anhcsld/<?php echo $row['img'] ?>" class="img-fluid"
+                                        <td><img src="../IMAGES/anhcsld/<?php echo $row['img'] ?>" class="img-fluid"
                                                 style="max-width: 100px;"></td>
                                         <td><?php echo $row['gia'] ?></td>
                                       
