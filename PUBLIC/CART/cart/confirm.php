@@ -7,6 +7,9 @@
 
 </head>
 <body>
+  <?php
+  // check tạo đơn hàng thành công hay không ?
+  if(isset($_SESSION['order_id'])) { ?>
   <div class="container">
     <h1>Xác nhận thanh toán</h1>
     <h5>Đơn hàng của bạn đã được thanh toán thành công!</h5>
@@ -21,31 +24,35 @@
         <tbody>
           <tr>
             <td>Mã đơn hàng</td>
-            <td>123456</td>
+            <td><?php echo($_SESSION['order_id']) ?></td>
           </tr>
           <tr>
             <td>Tên khách hàng</td>
-            <td>Nguyễn Văn A</td>
+            <td><?php echo($_SESSION['ten']) ?></td>
           </tr>
           <tr>
             <td>Email</td>
-            <td>nguyenvana@gmail.com</td>
+            <td><?php echo($_SESSION['email']) ?></td>
           </tr>
           <tr>
             <td>Số điện thoại</td>
-            <td>0902123456</td>
+            <td><?php echo($_SESSION['dienthoai']) ?></td>
           </tr>
           <tr>
             <td>Địa chỉ</td>
-            <td>18/1A Cộng Hòa, Phường 4, Quận Tân Bình, TP. Hồ Chí Minh</td>
+            <td><?php echo($_SESSION['diachi']) ?></td>
+          </tr>
+          <tr>
+            <td>Địa chỉ</td>
+            <td><?php echo($_SESSION['ghichu']) ?></td>
           </tr>
           <tr>
             <td>Tổng tiền</td>
-            <td>9.650.000</td>
+            <td><?php echo($_SESSION['totalPrices']) ?></td>
           </tr>
           <tr>
             <td>Phương thức thanh toán</td>
-            <td>Thanh toán trực tuyến</td>
+            <td><?php echo($_SESSION['phuongthuc']) ?></td>
           </tr>
             </tbody>
       </table>
@@ -54,6 +61,9 @@
     <h5>Bạn sẽ nhận được email xác nhận đơn hàng và thông tin giao hàng trong vòng 24 giờ.</h5>
     <a href="index.php">Quay lại trang chủ</a>
   </div>
+
+<?php }   ?>
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
