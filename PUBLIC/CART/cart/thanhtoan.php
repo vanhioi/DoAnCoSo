@@ -10,13 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $diachi = $_POST["diachi"];
     $ghichu = $_POST["ghichu"];
     $phuongthuc = $_POST["phuongthuc"];
-    $user_id = 0;
 
     // lấy id khách hàng
     if(isset($_SESSION['idKH'])) {
-        $user_id = $_SESSION['idKH'];
+        $idKH = $_SESSION['idKH'];
     }
-
+    
     // đưa dữ liệu vào session file sau sử dụng lại.
     $_SESSION['ten'] = $ten;
     $_SESSION['email'] = $email;
@@ -24,9 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['diachi'] = $diachi;
     $_SESSION['ghichu'] = $ghichu;
     $_SESSION['phuongthuc'] = $phuongthuc;
-    $_SESSION['user_id'] = $user_id; // có hoặc 0 đều đc
-    echo(gettype($user_id));
-    echo "Id: $user_id<br>";
+    $_SESSION['idKH'] = $idKH; // có hoặc 0 đều đc
+    echo(gettype($idKH));
+    echo "Id: $idKH<br>";
     echo "Họ và tên: $ten<br>";
     echo "Email: $email<br>";
     echo "Số điện thoại: $dienthoai<br>";
@@ -50,8 +49,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
+    $status_id = 1; // Giả sử giá trị bạn muốn gán là 1
+
+    // Kiểm tra xem giá trị tồn tại trong bảng order_status hay không
+    $check_status_query = "SELECT COUNT(*) FROM order_status WHERE id = $status_id";
+    $result = $conn->query($check_status_query);
+
+    if ($result && $result->fetch_assoc()['COUNT(*)'] > 0) {
+        // Giá trị hợp lệ, tiếp tục với INSERT INTO
+    } else {
+        // Giá trị không hợp lệ, xử lý lỗi hoặc đưa ra thông báo
+        echo "Lỗi: Giá trị status không hợp lệ.";
+        return;
+    }
+
     $sql = "INSERT INTO `order` (
-        `user_id`,
+        `idKH`,
         `fullname`,
         `email`,
         `phone_number`,
@@ -62,23 +75,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         `order_id`, 
         `id_phuongthuc`
     )
-    VALUES ($user_id, '$ten','$email', '$dienthoai', 
+    VALUES ($idKH, '$ten','$email', '$dienthoai', 
     '$diachi', '$ghichu', 1, 1, 1, $phuongthuc)";
+    
     if ($conn->query($sql) === TRUE) {
         // Lấy ID của bản ghi order vừa được thêm
         $id = mysqli_insert_id($conn);
         $_SESSION['order_id'] = $id;
+
+        
         // Duyệt qua danh sách sản phẩm
-        foreach ($products as $product) {
+        foreach ($products as $sanpham) {
+            
+
             // Tạo câu lệnh INSERT INTO
             $sql = "INSERT INTO `order_details` 
-            VALUES (
-                $id,
-                " . intval($product["masp"]) . ",
-                " . intval($user_id) . ",
-                " . intval($product["price"]) . ",
-                " . $product["soluong"] . "
-            )";
+    (`order_id`, `masp`, `idKH`, `gia`, `soluong`)
+    VALUES (
+        $id,
+        " . intval($sanpham["masp"]) . ",
+        " . intval($idKH) . ",
+        " . intval($sanpham["gia"]) . ",
+        " . $sanpham["soluong"] . "
+    )";
 
             // Thực thi câu lệnh INSERT INTO
             if(!mysqli_query($conn, $sql)) return;
