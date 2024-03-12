@@ -19,6 +19,10 @@ $totalQuantity = calculateTotalQuantity($_SESSION['cart']);
 ?>
 
 <div>
+<?php
+    // Kiểm tra đăng nhập trước khi hiển thị giỏ hàng
+    if (isset($_SESSION['username'])) {
+    ?>
     <section class="cart">
         <div class="container">
             <div class="cart-top-wrap">
@@ -41,41 +45,44 @@ $totalQuantity = calculateTotalQuantity($_SESSION['cart']);
                 <div style="width: 50%;" class="cart-content-left">
                     <table>
                         <tr>
+                            <th>Ảnh</th>
                             <th>Tên sản phẩm</th>
                             <th>Thành tiền</th>
                             <th>SL</th>
                             <th>Xóa</th>
                         </tr>
+
                         <?php
-                        $totalPrice = 0;
-                        $i = 0;
-                     if(isset($_SESSION["cart"])){
-                        foreach ($_SESSION['cart'] as $product) {
-                            $totalPrice+= $product['price']* $product['soluong'];
-                            echo '<tr>';
-                            // Thong tin san pham
-                           
-                            echo '<td><p>' . $product['title'] . '</p></td>';
-                            echo '<td><p>' . $product['price']*$product['soluong'] . '</p></td>';
-                            echo '<td>
-                                    <form method="post" action="update_quantity.php"> 
-                                        <input type="hidden" name="index" value="">
-                                        <span><a style="text-decoration: none;" href="xoa.php?pg=giam&id='.$product['masp'].'">-</a>'.$product['soluong'].'<a style="text-decoration: none;" href="xoa.php?pg=tang&id='.$product['masp'].'">+</a></span>
-                                    </form>
-                                </td>';
-                                
-                              
-                            // chuc nang xoa
-                            echo '<td>
-                            <form method="post" action=""> 
-                                <button><a href="xoa.php?ind='.$i.'">Xóa</a></button>
-                            </form>
-                          </td>';     
-                        }
-                        $i++;
-                        $_SESSION['totalPrices'] = $totalPrice;
-                     }
-                        ?>
+                            $totalPrice = 0;
+
+                            if(isset($_SESSION["cart"])){
+                                $i = 0;
+                                foreach ($_SESSION['cart'] as $product) {
+                                    $totalPrice += $product['gia'] * $product['soluong'];
+                                    echo '<tr>';
+                                    // Thong tin san pham
+                                    echo '<td><img src="../IMAGES/anhcsld/' . $product['img'] . '" alt="Hình ảnh sản phẩm"></td>';
+                                    echo '<td><p>' . $product['tenSP'] . '</p></td>';
+                                    echo '<td><p>' . $product['gia'] * $product['soluong'] . '</p></td>';
+                                    echo '<td>
+                                        <form method="post" action="update_quantity.php"> 
+                                            <input type="hidden" name="index" value="">
+                                            <span><a style="text-decoration: none;" href="xoa.php?pg=giam&id='.$product['masp'].'">-</a>'.$product['soluong'].'<a style="text-decoration: none;" href="xoa.php?pg=tang&id='.$product['masp'].'">+</a></span>
+                                        </form>
+                                    </td>';
+
+                                    // chuc nang xoa
+                                    echo '<td>
+                                        <form method="post" action=""> 
+                                            <button><a href="xoa.php?ind='.$i.'">Xóa</a></button>
+                                        </form>
+                                    </td>'; 
+
+                                    echo '</tr>';
+                                    $i++;
+                                }
+                            }
+                            ?>
                     </table>
                 </div>
 
@@ -112,15 +119,21 @@ $totalQuantity = calculateTotalQuantity($_SESSION['cart']);
                         <a href="index.php?pid=5"><button>THANH TOÁN</button></a>
 
                     </div>
-                    <div class="cart-content-right-dangnhap">
-                        <p>TÀI KHOẢN CỦA BẠN</p><br>
-                        <p> Hãy <a href="login.php">Đăng nhập</a> tài khoản của bạn đã tích điểm thành viên</p>
-                    </div>
-                    <!-- Additional content for the right side of the cart -->
+                    
                 </div>
             </div>
         </div>
     </section>
+    <?php
+    } else {
+        // Hiển thị thông báo yêu cầu đăng nhập nếu chưa đăng nhập
+        ?>
+        <div class="container">
+            <p style=" font-size: 50px; display: flex; justify-content: center;"><a href="login.php">Vui lòng đăng nhập để xem giỏ hàng của bạn. </a></p>
+        </div>
+        <?php
+    }
+    ?>
 </div>
 
 
