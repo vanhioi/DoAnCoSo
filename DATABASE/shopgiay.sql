@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2024 at 03:43 AM
+-- Generation Time: Mar 13, 2024 at 02:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -105,13 +105,13 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`id`, `idKH`, `fullname`, `email`, `phone_number`, `address`, `note`, `order_date`, `status`, `order_id`, `id_phuongthuc`) VALUES
-(29, 0, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-12 19:09:56', 1, 1, 1),
-(30, 0, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-12 19:31:01', 1, 1, 2),
-(31, 0, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-12 19:34:45', 1, 1, 2),
-(32, 0, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-12 19:40:47', 1, 1, 2),
-(33, 0, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-12 19:41:32', 1, 1, 2),
-(34, 0, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-12 19:42:40', 1, 1, 2),
-(35, 0, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-12 19:44:32', 1, 1, 2);
+(29, 1, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-13 13:21:33', 1, 1, 1),
+(30, 2, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-13 13:21:36', 1, 1, 2),
+(31, 4, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-13 13:21:40', 1, 1, 2),
+(32, 5, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-13 13:21:45', 1, 1, 2),
+(33, 6, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-13 13:21:49', 1, 1, 2),
+(34, 1, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-13 13:21:53', 1, 1, 2),
+(35, 2, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-13 13:21:56', 1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -398,7 +398,7 @@ ALTER TABLE `danhmuc`
 -- AUTO_INCREMENT for table `loaisp`
 --
 ALTER TABLE `loaisp`
-  MODIFY `idLoaisp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `idLoaisp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `mausp`
@@ -470,7 +470,8 @@ ALTER TABLE `mausp`
 ALTER TABLE `order`
   ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`status`) REFERENCES `user` (`idKH`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `order_ibfk_2` FOREIGN KEY (`status`) REFERENCES `order_status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_ibfk_4` FOREIGN KEY (`id_phuongthuc`) REFERENCES `thanhtoan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `order_ibfk_4` FOREIGN KEY (`id_phuongthuc`) REFERENCES `thanhtoan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_ibfk_5` FOREIGN KEY (`idKH`) REFERENCES `user` (`idKH`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `order_details`
