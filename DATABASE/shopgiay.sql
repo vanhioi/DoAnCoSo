@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 07, 2024 lúc 03:26 PM
+-- Thời gian đã tạo: Th3 13, 2024 lúc 03:15 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -57,9 +57,9 @@ CREATE TABLE `loaisp` (
 --
 
 INSERT INTO `loaisp` (`idLoaisp`, `tenloaisp`, `iddm`) VALUES
-(11, 'women', 1),
+(11, 'Women', 1),
 (12, 'Kid', 2),
-(13, 'men', 2);
+(13, 'Men', 2);
 
 -- --------------------------------------------------------
 
@@ -89,7 +89,7 @@ INSERT INTO `mausp` (`idmau`, `tenmau`, `idSP`, `soluongtriongkho`) VALUES
 
 CREATE TABLE `order` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `idKH` int(11) NOT NULL,
   `fullname` varchar(50) NOT NULL,
   `email` varchar(150) NOT NULL,
   `phone_number` varchar(20) NOT NULL,
@@ -102,6 +102,19 @@ CREATE TABLE `order` (
   `id_phuongthuc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `order`
+--
+
+INSERT INTO `order` (`id`, `idKH`, `fullname`, `email`, `phone_number`, `address`, `note`, `order_date`, `status`, `ship_method`, `order_id`, `id_phuongthuc`) VALUES
+(29, 0, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-12 19:09:56', 1, 1, 1, 1),
+(30, 0, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-12 19:31:01', 1, 1, 1, 2),
+(31, 0, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-12 19:34:45', 1, 1, 1, 2),
+(32, 0, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-12 19:40:47', 1, 1, 1, 2),
+(33, 0, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-12 19:41:32', 1, 1, 1, 2),
+(34, 0, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-12 19:42:40', 1, 1, 1, 2),
+(35, 0, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-12 19:44:32', 1, 1, 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -111,10 +124,10 @@ CREATE TABLE `order` (
 CREATE TABLE `order_details` (
   `id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL
+  `masp` int(11) NOT NULL,
+  `idKH` int(11) NOT NULL,
+  `gia` int(11) NOT NULL,
+  `soluong` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
@@ -127,6 +140,14 @@ CREATE TABLE `order_status` (
   `id` int(11) NOT NULL,
   `status_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `order_status`
+--
+
+INSERT INTO `order_status` (`id`, `status_name`) VALUES
+(1, 'Chờ xác nhận'),
+(2, 'Đã xác nhận');
 
 -- --------------------------------------------------------
 
@@ -219,9 +240,17 @@ INSERT INTO `sanpham` (`idSP`, `tenSP`, `mota`, `gia`, `img`, `idLoaisp`, `iddm`
 
 CREATE TABLE `ship_method` (
   `id` int(11) NOT NULL,
-  `method_name` varchar(50) NOT NULL,
-  `price` int(11) NOT NULL
+  `method_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `ship_method`
+--
+
+INSERT INTO `ship_method` (`id`, `method_name`) VALUES
+(1, 'Thanh toán tiền mặt  '),
+(2, 'Chuyển khoản ngân hàng'),
+(3, 'Ví MoMo');
 
 -- --------------------------------------------------------
 
@@ -291,7 +320,9 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`idKH`, `TenKH`, `diachiKH`, `diachiemailKH`, `sodienthoaiKH`, `idrole`, `password`) VALUES
 (1, 'tran bao anh kha', 'ấp b xã a huyện d tỉnh F', 'kha23@gmail.com', '0987543234', 1, '123456789'),
 (2, 'nguyen nhu hen', 'đường D5 huyện nhà bè tỉnh thành phố HCM', 'nhuycute@gmail.com', '0789564218', 1, '3456789'),
-(4, 'admin1', '', 'admin1@gmail.com', '', 2, 'admin1');
+(4, 'admin1', '', 'admin1@gmail.com', '', 2, 'admin1'),
+(5, 'user1', '', 'user1@gmail.com', '', 1, 'user1'),
+(6, 'user2', '', 'user2@gmail.com', '', 1, 'user2');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -323,8 +354,8 @@ ALTER TABLE `mausp`
 ALTER TABLE `order`
   ADD PRIMARY KEY (`id`),
   ADD KEY `order_ibfk_2` (`status`),
-  ADD KEY `order_ibfk_3` (`ship_method`),
-  ADD KEY `order_ibfk_4` (`id_phuongthuc`);
+  ADD KEY `order_ibfk_4` (`id_phuongthuc`),
+  ADD KEY `FK_idKH` (`idKH`);
 
 --
 -- Chỉ mục cho bảng `order_details`
@@ -332,8 +363,8 @@ ALTER TABLE `order`
 ALTER TABLE `order_details`
   ADD PRIMARY KEY (`id`),
   ADD KEY `order_details_ibfk_1` (`order_id`),
-  ADD KEY `order_details_ibfk_2` (`product_id`),
-  ADD KEY `order_details_ibfk_3` (`user_id`);
+  ADD KEY `order_details_ibfk_2` (`masp`),
+  ADD KEY `order_details_ibfk_3` (`idKH`);
 
 --
 -- Chỉ mục cho bảng `order_status`
@@ -379,7 +410,8 @@ ALTER TABLE `thanhtoan`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`idKH`),
-  ADD KEY `idrole` (`idrole`);
+  ADD KEY `idrole` (`idrole`),
+  ADD KEY `FK_idKH` (`idKH`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -395,7 +427,7 @@ ALTER TABLE `danhmuc`
 -- AUTO_INCREMENT cho bảng `loaisp`
 --
 ALTER TABLE `loaisp`
-  MODIFY `idLoaisp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idLoaisp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `mausp`
@@ -407,19 +439,19 @@ ALTER TABLE `mausp`
 -- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT cho bảng `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `order_status`
 --
 ALTER TABLE `order_status`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `role`
@@ -437,7 +469,7 @@ ALTER TABLE `sanpham`
 -- AUTO_INCREMENT cho bảng `ship_method`
 --
 ALTER TABLE `ship_method`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `size`
@@ -455,7 +487,7 @@ ALTER TABLE `thanhtoan`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `idKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -487,8 +519,8 @@ ALTER TABLE `order`
 --
 ALTER TABLE `order_details`
   ADD CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `sanpham` (`idSP`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_details_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `user` (`idKH`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`masp`) REFERENCES `sanpham` (`idSP`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_details_ibfk_3` FOREIGN KEY (`idKH`) REFERENCES `user` (`idKH`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `sanpham`
