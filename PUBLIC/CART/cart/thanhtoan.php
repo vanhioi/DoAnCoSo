@@ -11,6 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ghichu = $_POST["ghichu"];
     $phuongthuc = $_POST["phuongthuc"];
 
+    $idKH = 0;
+
     // lấy id khách hàng
     if(isset($_SESSION['idKH'])) {
         $idKH = $_SESSION['idKH'];
@@ -71,12 +73,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         `address`,
         `note`,
         `status`,
-        `ship_method`, 
         `order_id`, 
         `id_phuongthuc`
     )
     VALUES ($idKH, '$ten','$email', '$dienthoai', 
-    '$diachi', '$ghichu', 1, 1, 1, $phuongthuc)";
+    '$diachi', '$ghichu', 1, 1, $phuongthuc)";
     
     if ($conn->query($sql) === TRUE) {
         // Lấy ID của bản ghi order vừa được thêm
@@ -94,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     VALUES (
         $id,
         " . intval($sanpham["masp"]) . ",
-        " . intval($idKH) . ",
+        " . intval($idKH["idKH"]) . ",
         " . intval($sanpham["gia"]) . ",
         " . $sanpham["soluong"] . "
     )";
