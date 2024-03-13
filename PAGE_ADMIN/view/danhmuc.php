@@ -1,9 +1,8 @@
 <link rel="stylesheet" href="css/table.css">
 
 <?php
-$sql = "SELECT danhmuc.tendm,danhmuc.iddm, GROUP_CONCAT(loaisp.tenloaisp) AS all_sp
+$sql = "SELECT danhmuc.tendm,danhmuc.iddm
 FROM danhmuc 
-LEFT JOIN loaisp ON danhmuc.iddm = loaisp.iddm  
 GROUP BY danhmuc.iddm
 ORDER BY danhmuc.iddm DESC";
 $qr = mysqli_query($conn, $sql);
