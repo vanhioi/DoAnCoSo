@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 13, 2024 lúc 05:53 PM
+-- Thời gian đã tạo: Th3 14, 2024 lúc 08:19 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -59,26 +59,6 @@ INSERT INTO `loaisp` (`idLoaisp`, `tenloaisp`) VALUES
 (11, 'Women'),
 (12, 'Kid'),
 (13, 'Men');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `mausp`
---
-
-CREATE TABLE `mausp` (
-  `idmau` int(11) NOT NULL,
-  `tenmau` varchar(255) NOT NULL,
-  `idSP` int(11) NOT NULL,
-  `soluongtriongkho` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `mausp`
---
-
-INSERT INTO `mausp` (`idmau`, `tenmau`, `idSP`, `soluongtriongkho`) VALUES
-(1, 'trắng', 3, '2');
 
 -- --------------------------------------------------------
 
@@ -233,31 +213,6 @@ INSERT INTO `sanpham` (`idSP`, `tenSP`, `mota`, `gia`, `img`, `idLoaisp`, `iddm`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `size`
---
-
-CREATE TABLE `size` (
-  `idSize` int(11) NOT NULL,
-  `idSP` int(11) NOT NULL,
-  `sizevalue` varchar(20) NOT NULL,
-  `soluongtonkho` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `size`
---
-
-INSERT INTO `size` (`idSize`, `idSP`, `sizevalue`, `soluongtonkho`) VALUES
-(1, 13, 'baby', 10),
-(2, 3, '36.5 ', 2),
-(3, 3, '37', 4),
-(4, 3, '40', 30),
-(5, 3, '41', 10),
-(6, 3, '42', 2);
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `thanhtoan`
 --
 
@@ -319,13 +274,6 @@ ALTER TABLE `loaisp`
   ADD PRIMARY KEY (`idLoaisp`);
 
 --
--- Chỉ mục cho bảng `mausp`
---
-ALTER TABLE `mausp`
-  ADD PRIMARY KEY (`idmau`),
-  ADD KEY `idSP` (`idSP`);
-
---
 -- Chỉ mục cho bảng `order`
 --
 ALTER TABLE `order`
@@ -364,13 +312,6 @@ ALTER TABLE `sanpham`
   ADD KEY `iddm` (`iddm`);
 
 --
--- Chỉ mục cho bảng `size`
---
-ALTER TABLE `size`
-  ADD PRIMARY KEY (`idSize`),
-  ADD KEY `idSP` (`idSP`);
-
---
 -- Chỉ mục cho bảng `thanhtoan`
 --
 ALTER TABLE `thanhtoan`
@@ -401,16 +342,10 @@ ALTER TABLE `loaisp`
   MODIFY `idLoaisp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT cho bảng `mausp`
---
-ALTER TABLE `mausp`
-  MODIFY `idmau` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT cho bảng `order_details`
@@ -437,12 +372,6 @@ ALTER TABLE `sanpham`
   MODIFY `idSP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- AUTO_INCREMENT cho bảng `size`
---
-ALTER TABLE `size`
-  MODIFY `idSize` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT cho bảng `thanhtoan`
 --
 ALTER TABLE `thanhtoan`
@@ -459,12 +388,6 @@ ALTER TABLE `user`
 --
 
 --
--- Các ràng buộc cho bảng `mausp`
---
-ALTER TABLE `mausp`
-  ADD CONSTRAINT `mausp_ibfk_1` FOREIGN KEY (`idSP`) REFERENCES `sanpham` (`idSP`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Các ràng buộc cho bảng `order`
 --
 ALTER TABLE `order`
@@ -477,8 +400,7 @@ ALTER TABLE `order`
 --
 ALTER TABLE `order_details`
   ADD CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`masp`) REFERENCES `sanpham` (`idSP`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_details_ibfk_3` FOREIGN KEY (`idKH`) REFERENCES `user` (`idKH`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`masp`) REFERENCES `sanpham` (`idSP`) ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `sanpham`
@@ -486,12 +408,6 @@ ALTER TABLE `order_details`
 ALTER TABLE `sanpham`
   ADD CONSTRAINT `sanpham_ibfk_1` FOREIGN KEY (`idLoaisp`) REFERENCES `loaisp` (`idLoaisp`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `sanpham_ibfk_2` FOREIGN KEY (`iddm`) REFERENCES `danhmuc` (`iddm`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Các ràng buộc cho bảng `size`
---
-ALTER TABLE `size`
-  ADD CONSTRAINT `size_ibfk_1` FOREIGN KEY (`idSP`) REFERENCES `sanpham` (`idSP`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `user`
