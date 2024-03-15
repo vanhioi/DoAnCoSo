@@ -59,6 +59,12 @@
                         header('location:CART/cart/cart.php');
                       }
                       break;
+                case '8':
+                    include('view/allorder.php');
+                    break;
+                case '9':
+                    include('order_detail.php');
+                    break;
         }} else {
             include("view/trangchu.php");
             include("view/danhmuc.php");

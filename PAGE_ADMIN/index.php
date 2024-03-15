@@ -36,6 +36,9 @@ if (!isset($_SESSION['idKH'])) {
                 case 'themdanhmucsanpham':
                     include("view/themdanhmucsanpham.php");
                        break;
+                case 'themuser':
+                    include("view/themuser.php");
+                       break;       
                 case 'suadanhmuc':
                     include("view/suadanhmuc.php");
                         break;
@@ -53,6 +56,9 @@ if (!isset($_SESSION['idKH'])) {
                     break;
                 case 'xulythemdanhmucsanpham':
                     include("xuly/xulythemdanhmucsanpham.php");
+                    break;
+                case 'xulythemuser':
+                    include("xuly/xulythemuser.php");
                     break;
                 case 'timkiemsanpham':
                     include("view/timkiemsanpham.php");
@@ -72,8 +78,11 @@ if (!isset($_SESSION['idKH'])) {
                 case 'user':
                     include("view/user.php");
                     break;
-                case 'xoa':
-                    include("view/xoa.php");
+                case 'quanlidonhang':
+                    include("view/quanlidonhang.php");
+                    break;
+                case 'chitietdonhang':
+                    include("view/chitietdonhang.php");
                     break;
             }
         }

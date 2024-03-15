@@ -8,6 +8,9 @@ $qr = mysqli_query($conn, $sql);
     </head>
 <body>
         <h6 style="text-align: center;padding: 10px;font-size: 30px; ">Danh sách tài khoản</h6>
+        <a href="index.php?quanly=themuser" class="btn btn-secondary"
+                style="margin-left: 900px;padding: 10px;">Thêm User</a>
+
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
@@ -21,7 +24,7 @@ $qr = mysqli_query($conn, $sql);
                                         <th>Địa Chỉ</th>
                                         <th>Email KH</th>
                                         <th>Số điện thoại</th>
-                                        <th>ID Role</th>
+                                        <th>Role</th>
                                         <th>Password</th>
                                         <th>Xóa user</th>
                                         </tr>
@@ -41,7 +44,7 @@ $qr = mysqli_query($conn, $sql);
                                         <td><?php echo $row['sodienthoaiKH'] ?></td>
                                         <td><?php echo $row['idrole'] ?></td>
                                         <td><?php echo $row['password'] ?></td>
-                                        <td><a href="index.php?quanly=xoa&xoa=<?php echo $i ?>"
+                                        <td><a href="index.php?quanly=xulythemuser&id=<?php echo $row['idKH']?>"
                                                 class="btn btn-danger">Xóa</a></td>
                                     </tr>
                                     <?php
@@ -51,5 +54,6 @@ $qr = mysqli_query($conn, $sql);
                         </div>
                     </div>
                 </div>
-            </div>                                            
+            </div>  
+                                                  
 </body>

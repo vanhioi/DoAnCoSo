@@ -5,7 +5,7 @@
             <li><a href="index.php?quanly=danhmucsanpham">Danh Mục Sản Phẩm</a></li>
             <li><a href="index.php?quanly=danhsachsanpham">Danh Sách Sản Phẩm</a></li>
             <li><a href="index.php?quanly=user">Users</a></li>
-            <li><a href="#">Quản lí đơn hàng</a></li>
+            <li><a href="index.php?quanly=quanlidonhang">Quản lí đơn hàng</a></li>
             <li><a href="dangxuat.php">Đăng xuất</a> </li>
         </ul>
     </div>

@@ -37,23 +37,25 @@ $conn->close();
 ?>
 
 
-    <style>
-        input[type="text"] {
-            margin-bottom: 25px;
-            width: 250px;
-            height: 40px;
-        }
-        a {
-            text-decoration: none;
-            color: black;
-        }
-        button {
-            background-color: #FFCE1A;
-            border: none;
-            border-radius: 10px;
-            align-items: center;
-        }
-    </style>
+<style>
+    input[type="text"] {
+        margin-bottom: 25px;
+        width: 250px;
+        height: 40px;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    button {
+        background-color: #FFCE1A;
+        border: none;
+        border-radius: 10px;
+        align-items: center;
+    }
+</style>
 
 <body>
     <center>
@@ -62,28 +64,31 @@ $conn->close();
         <!-- Other profile information here -->
         <button><a href="index.php">Trang chủ</a></button>
         <button><a href="dangxuat.php">Đăng xuất</a></button>
+        <button><a href="index.php?pid=8">Các đơn hàng</a></button>
     </center>
 </body>
+
 </html>
 
-   
 
- 
-    <style>
-        input[type="text"] {
-            margin-bottom: 25px;
-            width: 250px;
-            height: 40px;
-        }
-        a {
-            text-decoration: none;
-            color: black;
-        }
-        button {
-            background-color: #FFCE1A;
-            border: none;
-            border-radius: 10px;
-            align-items: center;
-        }
-           
+
+
+<style>
+    input[type="text"] {
+        margin-bottom: 25px;
+        width: 250px;
+        height: 40px;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    button {
+        background-color: #FFCE1A;
+        border: none;
+        border-radius: 10px;
+        align-items: center;
+    }
 </style>
