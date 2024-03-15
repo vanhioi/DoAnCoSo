@@ -118,11 +118,7 @@ if(isset($_GET['id'])){
             font-size: 20px;
         }
 
-        #myImg {
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.3s;
-        }
+
 
         #myImg:hover {opacity: 0.7;}
 
@@ -169,10 +165,7 @@ if(isset($_GET['id'])){
         animation-duration: 0.6s;
         }
 
-        @-webkit-keyframes zoom {
-        from {-webkit-transform:scale(0)} 
-        to {-webkit-transform:scale(1)}
-        }
+        
 
         @keyframes zoom {
         from {transform:scale(0)} 
@@ -197,12 +190,7 @@ if(isset($_GET['id'])){
         cursor: pointer;
         }
 
-        /* 100% Image Width on Smaller Screens */
-        @media only screen and (max-width: 700px){
-        .modal-content {
-            width: 100%;
-        }
-        }
+        
     </style>
 
 <script>

@@ -32,7 +32,7 @@
     }
 
     .hero {
-    background-image: url('../IMAGES/anhnen.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../IMAGES/anhnen.png');
     background-size: cover;
     background-position: center;
     color: #fff;
