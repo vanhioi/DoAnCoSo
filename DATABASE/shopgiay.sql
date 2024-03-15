@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 14, 2024 lúc 08:19 AM
+-- Thời gian đã tạo: Th3 15, 2024 lúc 06:55 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -85,13 +85,9 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`id`, `idKH`, `fullname`, `email`, `phone_number`, `address`, `note`, `order_date`, `status`, `order_id`, `id_phuongthuc`) VALUES
-(29, 1, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-13 13:21:33', 1, 1, 1),
-(30, 2, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-13 13:21:36', 1, 1, 2),
-(31, 4, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-13 13:21:40', 1, 1, 2),
-(32, 5, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-13 13:21:45', 1, 1, 2),
-(33, 6, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-13 13:21:49', 1, 1, 2),
-(34, 1, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-13 13:21:53', 1, 1, 2),
-(35, 2, 'Kha', 'kha23@gmail.com', '2423', 'sfsd', 'gg', '2024-03-13 13:21:56', 1, 1, 2);
+(45, 2, 'user1', 'user1@gmail.com', 'ew fe', 'fwef', 'ừef', '2024-03-15 17:09:58', 2, 0, 2),
+(46, 2, 'user1', 'user1@gmail.com', 'ew fe', 'fwef', 'ừef', '2024-03-15 17:24:35', 2, 0, 2),
+(49, 2, 'user1', 'user1@gmail.com', 'gẻwgrgt4h', '3dr5h', 'hừhrg', '2024-03-15 17:32:05', 1, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -107,6 +103,18 @@ CREATE TABLE `order_details` (
   `gia` int(11) NOT NULL,
   `soluong` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `order_details`
+--
+
+INSERT INTO `order_details` (`id`, `order_id`, `masp`, `idKH`, `gia`, `soluong`) VALUES
+(20, 45, 10, 2, 889000, 1),
+(21, 45, 11, 2, 1019000, 1),
+(22, 46, 10, 2, 889000, 1),
+(23, 46, 11, 2, 1019000, 1),
+(28, 49, 9, 2, 1189149, 1),
+(29, 49, 12, 2, 1529000, 1);
 
 -- --------------------------------------------------------
 
@@ -252,10 +260,10 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`idKH`, `TenKH`, `diachiKH`, `diachiemailKH`, `sodienthoaiKH`, `idrole`, `password`) VALUES
 (1, 'tran bao anh kha', 'ấp b xã a huyện d tỉnh F', 'kha23@gmail.com', '0987543234', 1, '123456789'),
-(2, 'nguyen nhu hen', 'đường D5 huyện nhà bè tỉnh thành phố HCM', 'nhuycute@gmail.com', '0789564218', 1, '3456789'),
-(4, 'admin1', '', 'admin1@gmail.com', '', 2, 'admin1'),
-(5, 'user1', '', 'user1@gmail.com', '', 1, 'user1'),
-(6, 'user2', '', 'user2@gmail.com', '', 1, 'user2');
+(2, 'admin1', '', 'admin1@gmail.com', '', 2, 'admin1'),
+(9, 'user1', 'sfsduuik', 'user1@gmail.com', '4527275', 1, 'user1'),
+(11, 'user2', 'sfsf', 'user2@gmail.com', '0234567899', 1, 'user2'),
+(12, 'admin2', 'svgzsvsf', 'admin2@gmail.com', '0123456789', 2, 'admin2');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -339,19 +347,19 @@ ALTER TABLE `danhmuc`
 -- AUTO_INCREMENT cho bảng `loaisp`
 --
 ALTER TABLE `loaisp`
-  MODIFY `idLoaisp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idLoaisp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT cho bảng `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT cho bảng `order_status`
@@ -381,7 +389,7 @@ ALTER TABLE `thanhtoan`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `idKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
