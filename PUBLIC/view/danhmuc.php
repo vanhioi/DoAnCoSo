@@ -28,7 +28,7 @@
 
     .ten_danhmucsp a {
         text-decoration: none;
-        margin: 0 55px;
+        margin: 0 25px;
         padding: 5px 50px;
         border: 1px solid #ccc;
         border-radius: 5px;
