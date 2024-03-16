@@ -112,6 +112,7 @@ $resultSql = $conn->query($sql);
     padding: 10px 30px 10px 30px;
     color: white;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .dropdown {

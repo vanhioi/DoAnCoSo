@@ -130,6 +130,7 @@ $resultnewSql = $conn->query($newsql);
         padding: 10px 30px 10px 30px;
         color: white;
         font-size: 16px;
+        cursor: pointer;
     }
 
     .phantrang {

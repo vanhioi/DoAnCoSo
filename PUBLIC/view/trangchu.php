@@ -3,7 +3,7 @@
         <div class="hero-content">
             <h2>Chào mừng bạn đến với Nike-2hand</h2>
         </div>
-    </section>
+</section>
 
 <div class="all_product">
     <a href="index.php">ALL PRODUCTS</a>
@@ -18,7 +18,7 @@
         height: 5vh;
         background-color: black;
         border-radius: 5px;
-        margin: 45px;
+        margin: 30px;
         width: 15%;
         margin-left: auto;
         margin-right: auto;
@@ -32,17 +32,17 @@
     }
 
     .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../IMAGES/anhnen.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../IMAGES/anhnen2.png');
     background-size: cover;
     background-position: center;
     color: #fff;
     text-align: center;
-    padding: 150px;
+    padding: 120px;
     opacity: 0.98;
 }
 
 .hero-content {
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
 }
 

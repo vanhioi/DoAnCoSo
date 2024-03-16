@@ -90,5 +90,6 @@ $conn->close();
         border: none;
         border-radius: 10px;
         align-items: center;
+        cursor: pointer;
     }
 </style>
