@@ -73,6 +73,7 @@ if (isset($_GET["idsp"])) {
     <!-- Hiển thị phân trang -->
     <div class="pagination">
         <?php
+        echo "<a href='index.php?page=1'>Trang đầu</a>";
         $sql = "SELECT COUNT(*) AS total FROM sanpham";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
@@ -81,6 +82,7 @@ if (isset($_GET["idsp"])) {
         for ($i = 1; $i <= $totalPages; $i++) {
             echo "<a href='index.php?page=$i'>$i</a>";
         }
+        echo "<a href='index.php?page=$totalPages'>Trang cuối</a>";
         ?>
     </div>
 <?php

@@ -108,9 +108,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             }
 
+            
             // Đã lưu dữ liệu thành công, chuyển hướng về trang cần thiết
             $url = 'http://localhost/DoAnCoSo/PUBLIC/index.php?pid=8';
-            // Chuyển hướng
+           // Chuyển hướng
             header('Location: ' . $url);
             exit;
         } else {

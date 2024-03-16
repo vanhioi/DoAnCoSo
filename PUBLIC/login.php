@@ -22,7 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Store username in session
     $_SESSION['username'] = $username;
-
     if ($result->num_rows > 0) {
         
         header("Location: index.php");

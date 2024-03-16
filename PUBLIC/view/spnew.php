@@ -21,72 +21,74 @@ $resultsaleSql = $conn->query($salesql);
 $resultnewSql = $conn->query($newsql);
 ?>
 <?php
-    if(isset($_GET["pid"])){
-    if($_GET["pid"]==1){
+if (isset($_GET["pid"])) {
+    if ($_GET["pid"] == 1) {
 ?>
-<div class="shop">
-    <div class="shop-hihi">
-        <div class="shop-child">
-        <?php
-            if ($resultsaleSql->num_rows > 0) {
-            while ($row = $resultsaleSql->fetch_assoc()) {
-                
-        ?>
-                  <a href="index.php?pid=product_detail&id=<?=$row['idSP']?>">
-                  <div class="display-product">
-                        <form action="xulidulieu/addToCart.php" method="post">
-                            <input type="hidden" name="idSP" value="<?php echo $row['idSP']; ?>">
-                            <input type="hidden" name="img" value="<?php echo $row['img']; ?>">
-                            <input type="hidden" name="tenSP" value="<?php echo $row['tenSP']; ?>">
-                            <input type="hidden" name="gia" value="<?php echo $row['gia']; ?>">
-                            <div style="display: flex; justify-content: center;">
-                                <img src="../IMAGES/anhcsld/<?php echo $row['img']; ?>" alt="anh giay">
-                            </div>
-                            <div>
-                                <a href="index.php?pid=product_detail&id=<?=$row['idSP']?>"> <h3 style="margin: 20px 0 20px 0"><?php echo $row['tenSP']; ?></h3> </a>
-                                <p style="margin-bottom: 20px;"><?=number_format($row['gia'], 0, ',', '.')?>vnđ</p>
-                                <a id="<?php echo $row["idSP"]; ?>">
-                                    <button type="submit" name="submit">
-                                        <img style="margin-right: 30px; width: 20px; height: 20px;" src="../IMAGES/Cart.png" alt="">
-                                        Giỏ hàng
-                                    </button>
-                                </a>
-                            </div>
-                        </form>
-                    </div>
+        <div class="shop">
+            <div class="shop-hihi">
+                <div class="shop-child">
+                    <?php
+                    if ($resultsaleSql->num_rows > 0) {
+                        while ($row = $resultsaleSql->fetch_assoc()) {
 
-                  </a>
-            <?php
-                }
-            } else {
-                echo "No products found.";
-            }
-            ?>
+                    ?>
+                            <a href="index.php?pid=product_detail&id=<?= $row['idSP'] ?>">
+                                <div class="display-product">
+                                    <form action="xulidulieu/addToCart.php" method="post">
+                                        <input type="hidden" name="idSP" value="<?php echo $row['idSP']; ?>">
+                                        <input type="hidden" name="img" value="<?php echo $row['img']; ?>">
+                                        <input type="hidden" name="tenSP" value="<?php echo $row['tenSP']; ?>">
+                                        <input type="hidden" name="gia" value="<?php echo $row['gia']; ?>">
+                                        <div style="display: flex; justify-content: center;">
+                                            <img src="../IMAGES/anhcsld/<?php echo $row['img']; ?>" alt="anh giay">
+                                        </div>
+                                        <div>
+                                            <a href="index.php?pid=product_detail&id=<?= $row['idSP'] ?>">
+                                                <h3 style="margin: 20px 0 20px 0"><?php echo $row['tenSP']; ?></h3>
+                                            </a>
+                                            <p style="margin-bottom: 20px;"><?= number_format($row['gia'], 0, ',', '.') ?>vnđ</p>
+                                            <a id="<?php echo $row["idSP"]; ?>">
+                                                <button type="submit" name="submit">
+                                                    <img style="margin-right: 30px; width: 20px; height: 20px;" src="../IMAGES/Cart.png" alt="">
+                                                    Giỏ hàng
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </a>
+                    <?php
+                        }
+                    } else {
+                        echo "No products found.";
+                    }
+                    ?>
+                </div>
+                <div class="phantrang">
+                    <a href="index.php?pid=1&page=1">
+                        Trang đầu </a>
+
+                    <?php
+                    for ($i = $startPage; $i <= $endPage; $i++) {
+                        echo "<a href='index.php?pid=1&page=$i'> $i  </a>";
+                    }
+                    ?>
+
+                    <a href="index.php?pid=1&page=<?php echo $totalPage ?>"> Trang cuối </a>
+                </div>
+            </div>
         </div>
-        <div class="phantrang">
-            <a href="index.php?page=1"> < </a>
 
-            <?php
-            for ($i = $startPage; $i <= $endPage; $i++) {
-                echo "<a href='index.php?page=$i'> $i  </a>";
-            }
-            ?>
-
-            <a href="index.php?page=<?php echo $totalPage ?>"> > </a>
-        </div>
-    </div>
-</div>
-
-<?php
-    }else{
-    }
-    ?>
     <?php
+    } else {
     }
     ?>
+<?php
+}
+?>
 
 <style>
-    
     .shop {
         display: flex;
         justify-content: center;
@@ -103,18 +105,21 @@ $resultnewSql = $conn->query($newsql);
     .shop-child {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between; /* điều chỉnh theo nhu cầu */
+        justify-content: space-between;
+        /* điều chỉnh theo nhu cầu */
     }
 
     .display-product {
-        width: 23%; /*  Điều chỉnh chiều rộng để vừa 4 mục trong một hàng */
+        width: 23%;
+        /*  Điều chỉnh chiều rộng để vừa 4 mục trong một hàng */
         margin: 10px 0;
         box-sizing: border-box;
     }
 
     .display-product img {
         width: 100%;
-        height: auto; /* Để chiều cao điều chỉnh tự động */
+        height: auto;
+        /* Để chiều cao điều chỉnh tự động */
         object-fit: cover;
     }
 
