@@ -2,8 +2,8 @@
 $conn = new mysqli("localhost", "root", "", "shopgiay");
 
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
-$totalItem = mysqli_fetch_assoc($conn->query("SELECT COUNT(*) as total FROM sanpham"))['total'];
-$itemPerPage = 12;
+$totalItem = mysqli_fetch_assoc($conn->query("SELECT COUNT(*) as total FROM sanpham WHERE iddm = 2"))['total'];
+$itemPerPage = 8;
 $totalPage = ceil($totalItem / $itemPerPage);
 $startPage = max(1, $page - 1);
 $endPage = min($totalPage, $page + 1);
@@ -16,7 +16,7 @@ $resultSql = $conn->query($sql);
 $IDdanhmuc = isset($_GET["iddm"]) ? $_GET["iddm"] : NULL;
 
 $salesql = "SELECT * FROM sanpham WHERE iddm = 1 ";
-$newsql = "SELECT * FROM sanpham WHERE iddm = 2 ";
+$newsql = "SELECT * FROM sanpham WHERE iddm = 2 LIMIT $offset, $itemPerPage" ;
 $resultsaleSql = $conn->query($salesql);
 $resultnewSql = $conn->query($newsql);
 ?>
@@ -29,10 +29,9 @@ if (isset($_GET["pid"])) {
                 <div class="shop-child">
                     <?php
                     if ($resultsaleSql->num_rows > 0) {
-                        while ($row = $resultsaleSql->fetch_assoc()) {
-
+                        while ($row = $resultnewSql->fetch_assoc()) {
                     ?>
-                            <a href="index.php?pid=product_detail&id=<?= $row['idSP'] ?>">
+                    <a href="index.php?pid=product_detail&id=<?= $row['idSP'] ?>">
                                 <div class="display-product">
                                     <form action="xulidulieu/addToCart.php" method="post">
                                         <input type="hidden" name="idSP" value="<?php echo $row['idSP']; ?>">
@@ -135,7 +134,6 @@ if (isset($_GET["pid"])) {
         padding: 10px 30px 10px 30px;
         color: white;
         font-size: 16px;
-        cursor: pointer;
     }
 
     .phantrang {
