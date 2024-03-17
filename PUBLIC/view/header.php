@@ -39,9 +39,6 @@ $resultSql = $conn->query($sql);
         <div>
             <a>
                 <div class="dropdown">
-                <?php if (isset($_SESSION['nguoidung'])) {
-                        echo $nguoidung;
-                    } else { ?>
                     <a href="index.php?pid=3"><img style="margin-right: 20px;" src="../IMAGES/Account.png" alt=""></a>
                     <?php
                 if ($resultSql->num_rows > 0) {
@@ -56,9 +53,6 @@ $resultSql = $conn->query($sql);
                     } /*nay panh them login*/
             ?> 
                 </div>
-                <?php
-                    }
-                ?>
             </a>
         </div>
         <div style="width: 20%;">

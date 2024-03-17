@@ -6,8 +6,8 @@
 		</ul>
         <ul class="list_catalogs">
 			<a href="index.php?quanly=danhsachsanpham"><div class="list_catalog_items sanpham" style="background-color: rgb(50, 50, 50);">Danh sách Sản Phẩm </div></a>
-			<a href="index.php?quanly=user"><div class="list_catalog_items users" style="background-color: rgb(50, 50, 50);">Users</div></a>
-			<a href="index.php?quanly=quanlidonhang"><div class="list_catalog_items quanlidonhang" style="background-color: rgb(50, 50, 50);">Quản lí đơn hàng</div></a>
+			<a href="index.php?quanly=user"><div class="list_catalog_items users" style="background-color: rgb(50, 50, 50);">Quản lý tài khoản</div></a>
+			<a href="index.php?quanly=quanlidonhang"><div class="list_catalog_items quanlidonhang" style="background-color: rgb(50, 50, 50);">Quản lý đơn hàng</div></a>
 		</ul>
 	</div>
     <style>

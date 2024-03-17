@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Đã lưu dữ liệu thành công, chuyển hướng về trang cần thiết
             unset($_SESSION['cart']);
-            $url = 'http://localhost/doancoso_baothinh-main/PUBLIC/index.php?pid=8';
+            $url = 'http://localhost/DoAnCoSo/PUBLIC/index.php?pid=8';
             // Chuyển hướng
             header('Location: ' . $url);
             exit;

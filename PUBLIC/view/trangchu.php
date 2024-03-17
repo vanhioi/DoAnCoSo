@@ -18,7 +18,7 @@
         height: 5vh;
         background-color: black;
         border-radius: 5px;
-        margin: 30px;
+        margin: 25px;
         width: 15%;
         margin-left: auto;
         margin-right: auto;

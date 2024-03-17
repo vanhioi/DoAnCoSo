@@ -115,7 +115,7 @@ span.password {
 <body>
 
 <div class="boxcenter">
-<h2>Login Form</h2>
+<h2>Đăng Nhập ADMIN</h2>
 
 <form action="login.php" method="post">
   <div class="imgcontainer">

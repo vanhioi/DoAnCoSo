@@ -4,8 +4,8 @@
             <li><a href="index.php?quanly=danhmuc">Danh Mục</a></li>
             <li><a href="index.php?quanly=danhmucsanpham">Danh Mục Sản Phẩm</a></li>
             <li><a href="index.php?quanly=danhsachsanpham">Danh Sách Sản Phẩm</a></li>
-            <li><a href="index.php?quanly=user">Users</a></li>
-            <li><a href="index.php?quanly=quanlidonhang">Quản lí đơn hàng</a></li>
+            <li><a href="index.php?quanly=user">Quản lý tài khoản</a></li>
+            <li><a href="index.php?quanly=quanlidonhang">Quản lý đơn hàng</a></li>
             <li><a href="dangxuat.php">Đăng xuất</a> </li>
         </ul>
     </div>

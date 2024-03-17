@@ -53,13 +53,7 @@ $resultSql = $conn->query($sql);
             case 'product_detail':
                 include('chitietsanpham.php');
                 break;
-            case '7':
-                if (isset($_GET['ind']) && $_GET['ind'] >= 0) {
-                    session_start();
-                    array_splice($_SESSION['cart'], $_GET['ind'], 1);
-                    header('location:CART/cart/cart.php');
-                }
-                break;
+            
             case '8':
                 include('view/allorder.php');
                 break;
