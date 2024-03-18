@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 16, 2024 at 05:03 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th3 18, 2024 lúc 06:07 PM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `shopgiay`
+-- Cơ sở dữ liệu: `shopgiay`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `danhmuc`
+-- Cấu trúc bảng cho bảng `danhmuc`
 --
 
 CREATE TABLE `danhmuc` (
@@ -33,7 +33,7 @@ CREATE TABLE `danhmuc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `danhmuc`
+-- Đang đổ dữ liệu cho bảng `danhmuc`
 --
 
 INSERT INTO `danhmuc` (`iddm`, `tendm`) VALUES
@@ -43,7 +43,7 @@ INSERT INTO `danhmuc` (`iddm`, `tendm`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `loaisp`
+-- Cấu trúc bảng cho bảng `loaisp`
 --
 
 CREATE TABLE `loaisp` (
@@ -52,7 +52,7 @@ CREATE TABLE `loaisp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `loaisp`
+-- Đang đổ dữ liệu cho bảng `loaisp`
 --
 
 INSERT INTO `loaisp` (`idLoaisp`, `tenloaisp`) VALUES
@@ -63,7 +63,7 @@ INSERT INTO `loaisp` (`idLoaisp`, `tenloaisp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Cấu trúc bảng cho bảng `order`
 --
 
 CREATE TABLE `order` (
@@ -81,7 +81,7 @@ CREATE TABLE `order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `order`
+-- Đang đổ dữ liệu cho bảng `order`
 --
 
 INSERT INTO `order` (`id`, `idKH`, `fullname`, `email`, `phone_number`, `address`, `note`, `order_date`, `status`, `order_id`, `id_phuongthuc`) VALUES
@@ -98,7 +98,7 @@ INSERT INTO `order` (`id`, `idKH`, `fullname`, `email`, `phone_number`, `address
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_details`
+-- Cấu trúc bảng cho bảng `order_details`
 --
 
 CREATE TABLE `order_details` (
@@ -111,7 +111,7 @@ CREATE TABLE `order_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `order_details`
+-- Đang đổ dữ liệu cho bảng `order_details`
 --
 
 INSERT INTO `order_details` (`id`, `order_id`, `masp`, `idKH`, `gia`, `soluong`) VALUES
@@ -121,7 +121,7 @@ INSERT INTO `order_details` (`id`, `order_id`, `masp`, `idKH`, `gia`, `soluong`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_status`
+-- Cấu trúc bảng cho bảng `order_status`
 --
 
 CREATE TABLE `order_status` (
@@ -130,7 +130,7 @@ CREATE TABLE `order_status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `order_status`
+-- Đang đổ dữ liệu cho bảng `order_status`
 --
 
 INSERT INTO `order_status` (`id`, `status_name`) VALUES
@@ -140,7 +140,7 @@ INSERT INTO `order_status` (`id`, `status_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Cấu trúc bảng cho bảng `role`
 --
 
 CREATE TABLE `role` (
@@ -149,7 +149,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `role`
+-- Đang đổ dữ liệu cho bảng `role`
 --
 
 INSERT INTO `role` (`id`, `namerole`) VALUES
@@ -159,7 +159,7 @@ INSERT INTO `role` (`id`, `namerole`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sanpham`
+-- Cấu trúc bảng cho bảng `sanpham`
 --
 
 CREATE TABLE `sanpham` (
@@ -173,7 +173,7 @@ CREATE TABLE `sanpham` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `sanpham`
+-- Đang đổ dữ liệu cho bảng `sanpham`
 --
 
 INSERT INTO `sanpham` (`idSP`, `tenSP`, `mota`, `gia`, `img`, `idLoaisp`, `iddm`) VALUES
@@ -218,12 +218,12 @@ INSERT INTO `sanpham` (`idSP`, `tenSP`, `mota`, `gia`, `img`, `idLoaisp`, `iddm`
 (49, 'Giày Nike Air Max ', ' Mang tính cách mạng vào năm 1987 và vẫn còn phù hợp cho đến ngày nay, Nike Air Max Command mang đến cảm giác cổ điển với sự sang trọng sang trọng của đệm Nike Air và đế giữa bằng bọt mềm. Phần trên bằng vật liệu hỗn hợp có các đường cắt để tăng thêm chiều sâu trong khi đế ngoài Waffle mang lại kiểu dáng và độ bền di sản.\r\n- Sỉze: 36, 36.5, 37.5, 38', 1680000, '1710603953_giay-the-thao-nu-nike-air-max-90-women-s-shoes-dx0115-101-mau-trang-kem-size-36-5-64a4c9962d653-05072023083830.jpg', 11, 1),
 (53, 'Air Zoom Structure 25	', 'Với sự ổn định ở nơi bạn cần và đệm ở nơi bạn muốn, Structure 25 hỗ trợ bạn trong những chặng đường dài, những buổi tập luyện ngắn và thậm chí cả những bước lùi trước khi ngày kết thúc. Đó là sự ổn định mà bạn tìm kiếm, trung thành ngay từ lần buộc đầu tiên, đã được thử và kiểm nghiệm, với hệ thống giữa bàn chân hỗ trợ hoàn toàn và có lớp đệm thoải mái hơn trước.\r\n', 2280000, '1710604511_th (4).jfif', 13, 2),
 (58, 'Giày Thể Thao Nữ Nike Air Force 1', 'Giày Thể Thao Nữ Nike Air Force 1 Lover Màu Đen được làm từ chất liệu da cao cấp với độ ôm được thiết kế đặc biệt để nâng đỡ có định hướng và hỗ trợ chuyển động. Đế ngoài cao su với vòng tròn trục bóng rỗ truyền thống cho lực kéo và độ bền', 5890000, '1710590562_Giày Thể Thao Nữ Nike Air Force 1 Lover XX Premium Women_s Shoes BV8249-001 Màu Đen.jpg', 13, 2),
-(59, 'GIÀY NIKE SB DA LỘN ', 'Giày Thể Thao SB trẻ trung và vô cùng năng động. Hoàn hảo về chất lượng và kiểu dáng đẹp mắt,đang được giới trẻ yêu thích và săn đón. Size: 35.5 36.5 37.5 38 38.5 39 40 40.5 41 42 42.5 43 44 44.5 45', 1550000, '1710604791_Giày Nike Invincible 3 - Đen  JapanSport DR2660-003.png', 13, 2);
+(59, 'GIÀY NIKE SB DA LỘN ', 'Giày Thể Thao SB trẻ trung và vô cùng năng động. Hoàn hảo về chất lượng và kiểu dáng đẹp mắt,đang được giới trẻ yêu thích và săn đón. Size: 35.5 36.5 37.5 38 38.5 39 40 40.5 41 42 42.5 43 44 44.5 45', 1550000, '1710781600_z5262373445119_78c72bc4b1b4d8d05279c51ec0608e9c.jpg', 13, 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `thanhtoan`
+-- Cấu trúc bảng cho bảng `thanhtoan`
 --
 
 CREATE TABLE `thanhtoan` (
@@ -232,7 +232,7 @@ CREATE TABLE `thanhtoan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `thanhtoan`
+-- Đang đổ dữ liệu cho bảng `thanhtoan`
 --
 
 INSERT INTO `thanhtoan` (`id`, `phuongthuc`) VALUES
@@ -243,7 +243,7 @@ INSERT INTO `thanhtoan` (`id`, `phuongthuc`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Cấu trúc bảng cho bảng `user`
 --
 
 CREATE TABLE `user` (
@@ -257,7 +257,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Đang đổ dữ liệu cho bảng `user`
 --
 
 INSERT INTO `user` (`idKH`, `TenKH`, `diachiKH`, `diachiemailKH`, `sodienthoaiKH`, `idrole`, `password`) VALUES
@@ -268,23 +268,23 @@ INSERT INTO `user` (`idKH`, `TenKH`, `diachiKH`, `diachiemailKH`, `sodienthoaiKH
 (6, 'user2', '', 'user2@gmail.com', '', 1, 'user2');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `danhmuc`
+-- Chỉ mục cho bảng `danhmuc`
 --
 ALTER TABLE `danhmuc`
   ADD PRIMARY KEY (`iddm`);
 
 --
--- Indexes for table `loaisp`
+-- Chỉ mục cho bảng `loaisp`
 --
 ALTER TABLE `loaisp`
   ADD PRIMARY KEY (`idLoaisp`);
 
 --
--- Indexes for table `order`
+-- Chỉ mục cho bảng `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`id`),
@@ -293,7 +293,7 @@ ALTER TABLE `order`
   ADD KEY `FK_idKH` (`idKH`);
 
 --
--- Indexes for table `order_details`
+-- Chỉ mục cho bảng `order_details`
 --
 ALTER TABLE `order_details`
   ADD PRIMARY KEY (`id`),
@@ -302,19 +302,19 @@ ALTER TABLE `order_details`
   ADD KEY `order_details_ibfk_3` (`idKH`);
 
 --
--- Indexes for table `order_status`
+-- Chỉ mục cho bảng `order_status`
 --
 ALTER TABLE `order_status`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `role`
+-- Chỉ mục cho bảng `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sanpham`
+-- Chỉ mục cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
   ADD PRIMARY KEY (`idSP`),
@@ -322,13 +322,13 @@ ALTER TABLE `sanpham`
   ADD KEY `iddm` (`iddm`);
 
 --
--- Indexes for table `thanhtoan`
+-- Chỉ mục cho bảng `thanhtoan`
 --
 ALTER TABLE `thanhtoan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`idKH`),
@@ -336,69 +336,69 @@ ALTER TABLE `user`
   ADD KEY `FK_idKH` (`idKH`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `danhmuc`
+-- AUTO_INCREMENT cho bảng `danhmuc`
 --
 ALTER TABLE `danhmuc`
   MODIFY `iddm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `loaisp`
+-- AUTO_INCREMENT cho bảng `loaisp`
 --
 ALTER TABLE `loaisp`
   MODIFY `idLoaisp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `order`
+-- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT for table `order_details`
+-- AUTO_INCREMENT cho bảng `order_details`
 --
 ALTER TABLE `order_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `order_status`
+-- AUTO_INCREMENT cho bảng `order_status`
 --
 ALTER TABLE `order_status`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `role`
+-- AUTO_INCREMENT cho bảng `role`
 --
 ALTER TABLE `role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `sanpham`
+-- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
   MODIFY `idSP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
--- AUTO_INCREMENT for table `thanhtoan`
+-- AUTO_INCREMENT cho bảng `thanhtoan`
 --
 ALTER TABLE `thanhtoan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
   MODIFY `idKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `order`
+-- Các ràng buộc cho bảng `order`
 --
 ALTER TABLE `order`
   ADD CONSTRAINT `order_ibfk_2` FOREIGN KEY (`status`) REFERENCES `order_status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -406,21 +406,21 @@ ALTER TABLE `order`
   ADD CONSTRAINT `order_ibfk_5` FOREIGN KEY (`idKH`) REFERENCES `user` (`idKH`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `order_details`
+-- Các ràng buộc cho bảng `order_details`
 --
 ALTER TABLE `order_details`
   ADD CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`masp`) REFERENCES `sanpham` (`idSP`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `sanpham`
+-- Các ràng buộc cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
   ADD CONSTRAINT `sanpham_ibfk_1` FOREIGN KEY (`idLoaisp`) REFERENCES `loaisp` (`idLoaisp`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `sanpham_ibfk_2` FOREIGN KEY (`iddm`) REFERENCES `danhmuc` (`iddm`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `user`
+-- Các ràng buộc cho bảng `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`idrole`) REFERENCES `role` (`id`);
