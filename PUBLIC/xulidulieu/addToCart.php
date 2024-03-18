@@ -5,7 +5,7 @@
         $img = $_POST['img'];
         $title = $_POST['tenSP'];
         $price = $_POST['gia'];
-        $quantity = 0; // khởi tạo $quantity bằng 0
+
             var_dump($id);
         if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
             $_SESSION['cart'] = array();

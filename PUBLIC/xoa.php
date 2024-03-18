@@ -23,7 +23,7 @@ if (isset($_GET['ind']) && $_GET['ind'] >= 0) {
   if(isset($_GET['pg'])){
     switch($_GET['pg']){
       case 'giam':
-        if($_GET['pg']='giam'){
+        if($_GET['pg']=='giam'){
           $id= $_GET['id'];
           session_start();
           foreach ($_SESSION['cart'] as &$item) {
@@ -40,7 +40,7 @@ if (isset($_GET['ind']) && $_GET['ind'] >= 0) {
         break;
         //tang san pham
         case 'tang':
-          if($_GET['pg']='tang'){
+          if($_GET['pg']=='tang'){
             $id= $_GET['id'];
             session_start();
             foreach ($_SESSION['cart'] as &$item) {
