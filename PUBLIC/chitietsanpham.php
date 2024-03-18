@@ -29,7 +29,7 @@ if(isset($_GET['id'])){
                         </div>
                         </div>
                         <div class="product-content-left-small-img">
-                            <!-- Add small images if needed -->
+                            <!-- thêm ảnh nếu cần mô tả chi tiết hơn -->
                         </div>
                     </div>
                 </div>

@@ -22,7 +22,6 @@ $qr = mysqli_query($conn, $sql);
                                     <tr>
                                         <th>ID</th>
                                         <th>Tên danh mục sản phẩm</th>
-                                       
                                         <th>Sửa</th>
                                         <th>Xóa</th>
                                     </tr>

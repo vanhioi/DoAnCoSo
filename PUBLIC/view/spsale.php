@@ -15,8 +15,8 @@ $resultSql = $conn->query($sql);
 
 $IDdanhmuc = isset($_GET["iddm"]) ? $_GET["iddm"] : NULL;
 
-$salesql = "SELECT * FROM sanpham WHERE iddm = 1 LIMIT $offset, $itemPerPage";
-$newsql = "SELECT * FROM sanpham WHERE iddm = 2 ";
+$salesql = "SELECT * FROM sanpham WHERE iddm = 2 LIMIT $offset, $itemPerPage";
+$newsql = "SELECT * FROM sanpham WHERE iddm = 1 ";
 $resultsaleSql = $conn->query($salesql);
 $resultnewSql = $conn->query($newsql);
 ?>

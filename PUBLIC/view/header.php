@@ -40,18 +40,7 @@ $resultSql = $conn->query($sql);
             <a>
                 <div class="dropdown">
                     <a href="index.php?pid=3"><img style="margin-right: 20px;" src="../IMAGES/Account.png" alt=""></a>
-                    <?php
-                if ($resultSql->num_rows > 0) {
-                    while ($row = $resultSql->fetch_assoc()) {
-                ?>
-            <a href="index.php?pid=<?php echo $row['iddm']; ?>"><?php echo $row['tendm']; ?></a>
-
-            <?php
-                    }
-                } else {
-                    echo "No products found.";
-                    } /*nay panh them login*/
-            ?> 
+                    
                 </div>
             </a>
         </div>
@@ -107,16 +96,6 @@ $resultSql = $conn->query($sql);
     color: white;
     font-size: 20px;
     cursor: pointer;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-
-.dropdown:hover .dropdown-content {
-    display: block;
 }
 
 
