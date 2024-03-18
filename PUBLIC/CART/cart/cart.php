@@ -65,7 +65,7 @@ $totalQuantity = calculateTotalQuantity($_SESSION['cart']);
                                     echo '<td><p>' . $product['tenSP'] . '</p></td>';
                                     echo '<td><p>' . $product['gia'] * $product['soluong'] . '</p></td>';
                                     echo '<td>
-                                        <form method="post" action="update_quantity.php"> 
+                                        <form method="post" action=""> 
                                             <input type="hidden" name="index" value="">
                                             <span><a style="text-decoration: none;" href="xoa.php?pg=giam&id='.$product['masp'].'">-</a>'.$product['soluong'].'<a style="text-decoration: none;" href="xoa.php?pg=tang&id='.$product['masp'].'">+</a></span>
                                         </form>
